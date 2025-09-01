@@ -1,0 +1,78 @@
+<!DOCTYPE html><html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>中華民國294黨歷代黨主席團</title>
+  <style>
+    body {
+      font-family: "Microsoft JhengHei", sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .timeline {
+      position: relative;
+      max-width: 600px;
+      margin: auto;
+    }
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 4px;
+      background-color: #0078d7;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -2px;
+    }
+    .container {
+      padding: 10px 40px;
+      position: relative;
+      background-color: inherit;
+      width: 50%;
+    }
+    .container.left { left: 0; }
+    .container.right { left: 50%; }
+    .content {
+      padding: 20px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+    .container::before {
+      content: " ";
+      position: absolute;
+      top: 15px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: #0078d7;
+      border: 3px solid white;
+      z-index: 1;
+    }
+    .container.left::before { right: -10px; }
+    .container.right::before { left: -10px; }
+  </style>
+</head>
+<body>
+  <h1>中華民國294黨歷代黨主席團</h1>
+  <div class="timeline">
+    <div class="container left">
+      <div class="content">
+        <h2>年份 / 主席</h2>
+        <p>這裡是描述，之後你可以補上內容。</p>
+      </div>
+    </div>
+    <div class="container right">
+      <div class="content">
+        <h2>年份 / 主席</h2>
+        <p>這裡是描述，之後你可以補上內容。</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
