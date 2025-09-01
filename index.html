@@ -1,78 +1,124 @@
-<!DOCTYPE html><html lang="zh-Hant">
+<!DOCTYPE html>
+<html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>中華民國294黨歷代黨主席團</title>
+  <title>遊戲庫</title>
   <style>
     body {
-      font-family: "Microsoft JhengHei", sans-serif;
       margin: 0;
-      padding: 20px;
+      font-family: Arial, sans-serif;
       background: #f5f5f5;
     }
-    h1 {
-      text-align: center;
-      margin-bottom: 40px;
+
+    /* 頂部標題列 */
+    header {
+      background: #333;
+      color: #fff;
+      padding: 15px;
+      display: flex;
+      align-items: center;
     }
-    .timeline {
-      position: relative;
-      max-width: 600px;
-      margin: auto;
+
+    header h1 {
+      margin: 0;
+      flex-grow: 1;
+      font-size: 20px;
     }
-    .timeline::after {
-      content: '';
-      position: absolute;
-      width: 4px;
-      background-color: #0078d7;
+
+    /* 漢堡選單按鈕 */
+    .menu-btn {
+      font-size: 25px;
+      cursor: pointer;
+    }
+
+    /* 側邊欄 */
+    .sidebar {
+      position: fixed;
       top: 0;
-      bottom: 0;
-      left: 50%;
-      margin-left: -2px;
+      left: -250px; /* 初始隱藏 */
+      width: 250px;
+      height: 100%;
+      background: #444;
+      color: white;
+      padding-top: 60px;
+      transition: left 0.3s ease;
     }
-    .container {
-      padding: 10px 40px;
-      position: relative;
-      background-color: inherit;
-      width: 50%;
+
+    .sidebar.active {
+      left: 0;
     }
-    .container.left { left: 0; }
-    .container.right { left: 50%; }
-    .content {
-      padding: 20px;
-      background-color: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+
+    .sidebar h2 {
+      margin: 20px;
+      font-size: 18px;
+      border-bottom: 1px solid #666;
+      padding-bottom: 5px;
     }
-    .container::before {
-      content: " ";
-      position: absolute;
-      top: 15px;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      background-color: #0078d7;
-      border: 3px solid white;
-      z-index: 1;
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
     }
-    .container.left::before { right: -10px; }
-    .container.right::before { left: -10px; }
+
+    .sidebar ul li {
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+
+    .sidebar ul li:hover {
+      background: #555;
+    }
+
+    /* 遮罩背景 */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.4);
+      display: none;
+    }
+
+    .overlay.active {
+      display: block;
+    }
   </style>
 </head>
 <body>
-  <h1>中華民國294黨歷代黨主席團</h1>
-  <div class="timeline">
-    <div class="container left">
-      <div class="content">
-        <h2>年份 / 主席</h2>
-        <p>這裡是描述，之後你可以補上內容。</p>
-      </div>
-    </div>
-    <div class="container right">
-      <div class="content">
-        <h2>年份 / 主席</h2>
-        <p>這裡是描述，之後你可以補上內容。</p>
-      </div>
-    </div>
+  <header>
+    <span class="menu-btn">&#9776;</span> <!-- 三條杠符號 -->
+    <h1>遊戲庫</h1>
+  </header>
+
+  <!-- 側邊欄 -->
+  <div class="sidebar" id="sidebar">
+    <h2>分類</h2>
+    <ul>
+      <li>Android</li>
+      <li>Windows</li>
+    </ul>
   </div>
+
+  <!-- 遮罩 -->
+  <div class="overlay" id="overlay"></div>
+
+  <script>
+    const menuBtn = document.querySelector(".menu-btn");
+    const sidebar = document.getElementById("sidebar");
+    const overlay = document.getElementById("overlay");
+
+    menuBtn.addEventListener("click", () => {
+      sidebar.classList.toggle("active");
+      overlay.classList.toggle("active");
+    });
+
+    overlay.addEventListener("click", () => {
+      sidebar.classList.remove("active");
+      overlay.classList.remove("active");
+    });
+  </script>
 </body>
 </html>
