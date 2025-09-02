@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Windows 遊戲庫</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Windows 遊戲庫</h1>
+    <a href="index.html">← 返回首頁</a>
+  </header>
+
+  <main id="game-list"></main>
+
+  <script src="parser.js"></script>
+  <script>
+    fetch("windows.txt")
+      .then(res => res.text())
+      .then(text => renderGames(text, "game-list"));
+  </script>
+</body>
+</html>
