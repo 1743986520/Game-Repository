@@ -5,6 +5,7 @@ function renderGames(rawText, containerId) {
   blocks.forEach(block => {
     const lines = block.split("\n").map(l => l.trim()).filter(l => l);
 
+    // 解析新格式
     const title = lines.find(l => l.startsWith("###"))?.replace(/###/g, "") || "未命名";
     const desc = lines.find(l => l.startsWith("##"))?.replace(/##/g, "") || "";
     const versions = lines.filter(l => l.startsWith("#v"));
@@ -12,7 +13,7 @@ function renderGames(rawText, containerId) {
     let html = `<div class="game-item"><h3>${title}</h3>`;
     if (desc) html += `<p>${desc}</p>`;
     versions.forEach(v => {
-      // 移除開頭結尾的 #
+      // 去掉開頭和結尾的 "#"
       const clean = v.replace(/^#+|#+$/g, "");
       const match = clean.match(/(v[^（]+)（(.+)）/);
       if (match) {
