@@ -1,1 +1,4 @@
-
+###HypnoApp(催眠app)###
+##遊戲中會獲得一個能夠催眠他人的app##
+#v1.2.0下載(https://drive.google.com/file/d/1QZHFdod6R6dfjkldSitqsrqHDBBkEspJ/view?usp=sharing)#
+@
