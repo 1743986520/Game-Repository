@@ -1,29 +1,146 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
-<head><!-- Google tag (gtag.js) -->
+<head>
+<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-S2RP40BPKD"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-S2RP40BPKD');
 </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>善良的人的遊戲庫</title>
-<link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Microsoft JhengHei', '微軟正黑體', Arial, sans-serif;
+    }
+    
+    body {
+      background: linear-gradient(135deg, #f5f7fa 0%, #e4efe9 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+    
+    header {
+      width: 100%;
+      max-width: 800px;
+      text-align: center;
+      margin-bottom: 40px;
+      padding: 20px;
+    }
+    
+    .title-container {
+      background: linear-gradient(145deg, #ffffff, #e6e9ed);
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .title-container::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 60%);
+      transform: rotate(25deg);
+      z-index: 0;
+    }
+    
+    h1 {
+      font-size: 2.8rem;
+      color: #2c3e50;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 1;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      letter-spacing: 1px;
+    }
+    
+    .subtitle {
+      font-size: 1.2rem;
+      color: #7f8c8d;
+      font-weight: normal;
+      margin-top: 10px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    main {
+      width: 100%;
+      max-width: 800px;
+    }
+    
+    .menu {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+    
+    .menu li a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      background: white;
+      border-radius: 12px;
+      text-decoration: none;
+      color: #3498db;
+      font-weight: bold;
+      font-size: 1.1rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      min-height: 100px;
+      line-height: 1.5;
+    }
+    
+    .menu li a:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      background: #3498db;
+      color: white;
+    }
+    
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+      
+      .menu {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
-    <h1>善良的人的遊戲庫</h1>
+    <div class="title-container">
+      <h1>善良者的遊戲寶庫</h1>
+      <p class="subtitle">精選優質遊戲，純粹的娛樂體驗</p>
+    </div>
   </header>
 
   <main>
     <ul class="menu">
       <li><a href="android.html">Android 遊戲</a></li>
       <li><a href="windows.html">Windows 遊戲</a></li>
-       <li><a href="https://x.com/cccccccfyfy/">我的X(前身是 Twitter)主頁</a></li>
+      <li><a href="https://x.com/cccccccfyfy/">我的X(前身是 Twitter)主頁</a></li>
       <li><a href="https://t.me/qeufthvggg">紙飛機群</a></li>
       <li><a href="https://mt2.cn/">手機請安裝MT管理器方便安裝應用<br>{點我下載}</a></li>
     </ul>
