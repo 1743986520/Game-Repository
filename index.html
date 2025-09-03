@@ -11,7 +11,7 @@
 </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>善良的人的遊戲庫</title>
+  <title>善良者的遊戲寶庫</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <style>
     * {
@@ -30,11 +30,16 @@
       padding: 20px;
     }
     
-    header {
+    .container {
       width: 100%;
       max-width: 800px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+    
+    header {
       text-align: center;
-      margin-bottom: 40px;
       padding: 20px;
     }
     
@@ -79,15 +84,10 @@
       z-index: 1;
     }
     
-    main {
-      width: 100%;
-      max-width: 800px;
-    }
-    
     .menu {
       list-style: none;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      display: flex;
+      flex-direction: column;
       gap: 20px;
       padding: 20px;
     }
@@ -97,16 +97,16 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 20px;
+      padding: 25px 20px;
       background: white;
       border-radius: 12px;
       text-decoration: none;
       color: #3498db;
       font-weight: bold;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
       transition: all 0.3s ease;
-      min-height: 100px;
+      min-height: 80px;
       line-height: 1.5;
     }
     
@@ -117,33 +117,63 @@
       color: white;
     }
     
+    .disclaimer {
+      background: #fff8e1;
+      border-left: 4px solid #ffc107;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 0 20px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #5d4037;
+    }
+    
+    footer {
+      text-align: center;
+      padding: 20px;
+      margin-top: 30px;
+      color: #7f8c8d;
+      font-size: 0.9rem;
+    }
+    
     @media (max-width: 600px) {
       h1 {
         font-size: 2.2rem;
       }
       
-      .menu {
-        grid-template-columns: 1fr;
+      .menu li a {
+        font-size: 1.1rem;
+        padding: 20px 15px;
       }
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="title-container">
-      <h1>善良者的遊戲寶庫</h1>
-      <p class="subtitle">免責：僅限成人研究，請遵守法律</p>
-    </div>
-  </header>
+  <div class="container">
+    <header>
+      <div class="title-container">
+        <h1>善良者的遊戲寶庫</h1>
+        <p class="subtitle">精選優質遊戲，純粹的娛樂體驗</p>
+      </div>
+    </header>
 
-  <main>
-    <ul class="menu">
-      <li><a href="android.html">Android 遊戲</a></li>
-      <li><a href="windows.html">Windows 遊戲</a></li>
-      <li><a href="https://x.com/cccccccfyfy/">我的X(前身是 Twitter)主頁</a></li>
-      <li><a href="https://t.me/qeufthvggg">紙飛機群</a></li>
-      <li><a href="https://mt2.cn/">手機請安裝MT管理器方便安裝應用<br>{點我下載}</a></li>
-    </ul>
-  </main>
+    <div class="disclaimer">
+      免責聲明：本網站內容僅供成人研究使用，請遵守當地法律法規
+    </div>
+
+    <main>
+      <ul class="menu">
+        <li><a href="android.html">Android 遊戲</a></li>
+        <li><a href="windows.html">Windows 遊戲</a></li>
+        <li><a href="https://x.com/cccccccfyfy/">我的X(前身是 Twitter)主頁</a></li>
+        <li><a href="https://t.me/qeufthvggg">紙飛機群</a></li>
+        <li><a href="https://mt2.cn/">手機請安裝MT管理器方便安裝應用<br>{點我下載}</a></li>
+      </ul>
+    </main>
+    
+    <footer>
+      <p>© 2023 善良者的遊戲寶庫 - 所有權利保留</p>
+    </footer>
+  </div>
 </body>
 </html>
