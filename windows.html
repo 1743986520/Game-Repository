@@ -5,6 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Windows 遊戲庫</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* 搜索框样式 */
+    .search-container {
+      margin: 15px 0;
+      text-align: center;
+    }
+    
+    #search-input {
+      padding: 10px 15px;
+      width: 80%;
+      max-width: 400px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+    
+    .no-results {
+      text-align: center;
+      padding: 20px;
+      color: #666;
+      font-style: italic;
+    }
+    
+    .hidden {
+      display: none;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -12,13 +39,70 @@
     <a href="index.html">← 返回首頁</a>
   </header>
 
+  <div class="search-container">
+    <input type="text" id="search-input" placeholder="搜尋遊戲名稱或描述...">
+  </div>
+
   <main id="game-list"></main>
+  <div id="no-results" class="no-results hidden">沒有找到符合條件的遊戲</div>
 
   <script src="parser for windows.js"></script>
   <script>
+    let allGames = [];
+    
+    // 获取游戏数据并渲染
     fetch("windows.txt")
       .then(res => res.text())
-      .then(text => renderGames(text, "game-list"));
+      .then(text => {
+        // 创建临时容器存储解析结果
+        const tempContainer = document.createElement('div');
+        renderGames(text, tempContainer);
+        
+        // 收集所有游戏卡片
+        allGames = Array.from(tempContainer.querySelectorAll('.game-item'));
+        
+        // 初始渲染所有游戏
+        const gameList = document.getElementById('game-list');
+        gameList.innerHTML = '';
+        allGames.forEach(game => gameList.appendChild(game.cloneNode(true)));
+        
+        // 设置搜索功能
+        setupSearch();
+      });
+    
+    function setupSearch() {
+      const searchInput = document.getElementById('search-input');
+      const gameList = document.getElementById('game-list');
+      const noResults = document.getElementById('no-results');
+      
+      searchInput.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase().trim();
+        
+        if (searchTerm === '') {
+          // 显示所有游戏
+          gameList.innerHTML = '';
+          allGames.forEach(game => gameList.appendChild(game.cloneNode(true)));
+          noResults.classList.add('hidden');
+          return;
+        }
+        
+        // 过滤游戏
+        const filteredGames = allGames.filter(game => {
+          const title = game.querySelector('h3').textContent.toLowerCase();
+          const desc = game.querySelector('p') ? game.querySelector('p').textContent.toLowerCase() : '';
+          return title.includes(searchTerm) || desc.includes(searchTerm);
+        });
+        
+        // 更新显示
+        gameList.innerHTML = '';
+        if (filteredGames.length > 0) {
+          filteredGames.forEach(game => gameList.appendChild(game.cloneNode(true)));
+          noResults.classList.add('hidden');
+        } else {
+          noResults.classList.remove('hidden');
+        }
+      });
+    }
   </script>
 </body>
 </html>
