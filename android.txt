@@ -20,6 +20,6 @@
 @
 ###Anomalous Coffee Machin(異常咖啡機）###
 ##一款很適合學習英文的遊戲##
-#v4.2.5下載（）#
+#v4.2.5下載（https://drive.google.com/file/d/1PAFYGy5pA3lnSms2F7ZJS-ermFd0iVXy/view?usp=drivesdk）#
 #v4.2.5 PC版下載（https://1743986520.github.io/Game-Repository/windows.html#
 @
