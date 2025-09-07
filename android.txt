@@ -1,6 +1,7 @@
 ###HypnoApp(催眠app)###
 ##遊戲中會獲得一個能夠催眠他人的app，遊戲內容相當多##
 #v1.2.0下載(https://drive.google.com/file/d/1QZHFdod6R6dfjkldSitqsrqHDBBkEspJ/view?usp=sharing)#
+#v0.3PC版下載（https://drive.google.com/file/d/1n19nL_AF3MOta7zoWzyPuGbKQh-pqzBG/view?usp=sharing)#
 @
 ###花火輪盤賭###
 ##一款互動性没有很高的遊戲，比較適合邊玩邊路##
