@@ -210,53 +210,6 @@
       transform: translateY(-3px);
     }
     
-    /* 公告样式 */
-    .announcement {
-      background: #e3f2fd;
-      border-left: 4px solid #2196f3;
-      padding: 15px;
-      border-radius: 8px;
-      margin: 0 20px 20px;
-      text-align: center;
-      font-size: 0.95rem;
-      color: #1565c0;
-      display: none;
-      position: relative;
-    }
-    
-    .announcement .close-btn {
-      position: absolute;
-      right: 10px;
-      top: 10px;
-      background: none;
-      border: none;
-      font-size: 1.2rem;
-      cursor: pointer;
-      color: #1565c0;
-    }
-    
-    /* 测试按钮样式 */
-    .test-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin: 10px 0;
-    }
-    
-    .test-btn {
-      padding: 8px 15px;
-      border: none;
-      border-radius: 5px;
-      background-color: #3498db;
-      color: white;
-      cursor: pointer;
-      font-size: 0.9rem;
-    }
-    
-    .test-btn:hover {
-      background-color: #2980b9;
-    }
-    
     @media (max-width: 600px) {
       h1 {
         font-size: 2.2rem;
@@ -279,10 +232,6 @@
       .age-btn {
         width: 100%;
       }
-      
-      .test-buttons {
-        flex-direction: column;
-      }
     }
   </style>
 </head>
@@ -297,18 +246,6 @@
         <button class="age-btn btn-yes">是的，我已滿18歲</button>
         <button class="age-btn btn-no">未滿18歲</button>
       </div>
-    </div>
-  </div>
-
-  <!-- 公告区域 -->
-  <div class="announcement" id="mainland-china-announcement">
-    <button class="close-btn" onclick="closeAnnouncement()">×</button>
-    <p>本网站当初并未考量中国大陆网友无法访问Google云端的问题，在此深感抱歉，预计于10日内解决问题（公告日期9/9），造成你的不便请见谅</p>
-    
-    <!-- 测试按钮，正式使用时可以移除 -->
-    <div class="test-buttons">
-      <button class="test-btn" onclick="simulateMainlandUser()">模拟中国大陆用户</button>
-      <button class="test-btn" onclick="simulateNonMainlandUser()">模拟非中国大陆用户</button>
     </div>
   </div>
 
@@ -344,14 +281,11 @@
       const ageVerification = document.getElementById('age-verification');
       const btnYes = document.querySelector('.btn-yes');
       const btnNo = document.querySelector('.btn-no');
-      const announcement = document.getElementById('mainland-china-announcement');
       
       // 检查是否已经验证过年龄
       if (localStorage.getItem('ageVerified') === 'true') {
         ageVerification.style.display = 'none';
-        
-        // 年龄验证通过后，检测用户是否来自中国大陆
-        detectMainlandChinaUser();
+        return;
       }
       
       // 点击"是"的处理
@@ -360,9 +294,6 @@
         ageVerification.style.opacity = '0';
         setTimeout(function() {
           ageVerification.style.display = 'none';
-          
-          // 年龄验证通过后，检测用户是否来自中国大陆
-          detectMainlandChinaUser();
         }, 500);
       });
       
@@ -371,52 +302,6 @@
         alert('這才是你該玩的！即將為您跳轉...');
         window.location.href = 'https://1743986520.github.io/ooxx';
       });
-      
-      // 检测中国大陆用户
-      function detectMainlandChinaUser() {
-        // 使用IP API检测用户地理位置
-        fetch('https://ipapi.co/json/')
-          .then(response => response.json())
-          .then(data => {
-            // 检查是否来自中国大陆
-            if (data.country_code === 'CN' && data.region !== 'Taiwan') {
-              // 显示公告
-              announcement.style.display = 'block';
-              console.log('检测到中国大陆用户，显示公告');
-            } else {
-              console.log('非中国大陆用户，不显示公告');
-              console.log('用户位置信息:', data);
-            }
-          })
-          .catch(error => {
-            console.error('地理位置检测失败:', error);
-            // 备用方案：使用时区检测
-            const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-            const chinaTimezones = ['Asia/Shanghai', 'Asia/Chongqing', 'Asia/Urumqi'];
-            
-            if (chinaTimezones.includes(timezone)) {
-              announcement.style.display = 'block';
-              console.log('通过时区检测到中国大陆用户');
-            }
-          });
-      }
-      
-      // 关闭公告
-      window.closeAnnouncement = function() {
-        announcement.style.display = 'none';
-      }
-      
-      // 模拟中国大陆用户（测试用）
-      window.simulateMainlandUser = function() {
-        announcement.style.display = 'block';
-        console.log('已模拟中国大陆用户，公告已显示');
-      }
-      
-      // 模拟非中国大陆用户（测试用）
-      window.simulateNonMainlandUser = function() {
-        announcement.style.display = 'none';
-        console.log('已模拟非中国大陆用户，公告已隐藏');
-      }
     });
   </script>
 </body>
