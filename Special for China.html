@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>游戏文件索取</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(90deg, #4a90e2 0%, #5cb85c 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #2c3e50;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            margin: 20px;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+        
+        .back-button:hover {
+            background-color: #1a252f;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .image-container {
+            text-align: center;
+            margin: 20px 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .image-container img {
+            max-width: 100%;
+            display: block;
+            border-radius: 8px;
+        }
+        
+        .instructions {
+            background-color: #e8f4fc;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+            border-left: 5px solid #4a90e2;
+        }
+        
+        .instructions h3 {
+            color: #4a90e2;
+            margin-bottom: 10px;
+        }
+        
+        .form-container {
+            background-color: #f9f9f9;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #444;
+        }
+        
+        .form-group input, 
+        .form-group textarea {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border 0.3s;
+        }
+        
+        .form-group input:focus, 
+        .form-group textarea:focus {
+            border-color: #4a90e2;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+        }
+        
+        .submit-button {
+            background: linear-gradient(90deg, #4a90e2 0%, #5cb85c 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            transition: all 0.3s;
+            width: 100%;
+        }
+        
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .notification {
+            display: none;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .success {
+            background-color: #dff0d8;
+            color: #3c763d;
+            border: 1px solid #d6e9c6;
+        }
+        
+        .error {
+            background-color: #f2dede;
+            color: #a94442;
+            border: 1px solid #ebccd1;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #777;
+            font-size: 14px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-top: 1px solid #eee;
+        }
+        
+        @media (max-width: 600px) {
+            .content {
+                padding: 15px;
+            }
+            
+            .form-container {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="https://1743986520.github.io/Game-Repository/index.html" class="back-button">← 返回主页</a>
+    
+    <div class="container">
+        <header>
+            <h1>游戏文件索取</h1>
+        </header>
+        
+        <div class="content">
+            <div class="image-container">
+                <img src="friend.jpg" alt="朋友图片">
+            </div>
+            
+            <div class="instructions">
+                <h3>如何获取游戏文件？</h3>
+                <p>由于目前没找到比较好的下载方法，只能选择最原始的方式。以前跟我要过的，应该都知道我是直接微信发给你。</p>
+                <p>请在这边填写你要的游戏名字和您的联系方式，然后我会把档案传给你。如果你有梯子，当我没说。</p>
+            </div>
+            
+            <div class="form-container">
+                <form id="gameRequestForm">
+                    <div class="form-group">
+                        <label for="gameName">游戏名称：</label>
+                        <input type="text" id="gameName" name="gameName" required placeholder="请输入您想要的游戏名称">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contactInfo">联系方式：</label>
+                        <input type="text" id="contactInfo" name="contactInfo" required placeholder="微信号或其它联系方式">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">附加信息（可选）：</label>
+                        <textarea id="message" name="message" rows="3" placeholder="如有特殊要求或版本说明，请在此填写"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-button">提交请求</button>
+                </form>
+                
+                <div id="successNotification" class="notification success">
+                    请求已成功提交！我会尽快通过微信联系您。
+                </div>
+                
+                <div id="errorNotification" class="notification error">
+                    抱歉，提交过程中出现错误，请稍后再试或直接联系我。
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2025 游戏文件分享 | 提交后我会尽快通过微信联系您</p>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('gameRequestForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const gameName = document.getElementById('gameName').value;
+            const contactInfo = document.getElementById('contactInfo').value;
+            const message = document.getElementById('message').value;
+            
+            // 使用FormSubmit.co服务将表单数据发送到您的邮箱
+            this.action = "https://formsubmit.co/hongyuwei947@gmail.com";
+            this.method = "POST";
+            
+            // 添加隐藏字段以自定义电子邮件主题和内容
+            const hiddenInputs = [
+                { name: "_subject", value: `游戏文件请求: ${gameName}` },
+                { name: "_template", value: "table" },
+                { name: "_next", value: window.location.href + "?submit=success" },
+                { name: "游戏名称", value: gameName },
+                { name: "联系方式", value: contactInfo },
+                { name: "附加信息", value: message || "无" }
+            ];
+            
+            // 移除之前可能添加的隐藏字段
+            document.querySelectorAll('input[name="_subject"], input[name="_template"], input[name="_next"], input[name="游戏名称"], input[name="联系方式"], input[name="附加信息"]').forEach(el => el.remove());
+            
+            // 添加新的隐藏字段
+            hiddenInputs.forEach(input => {
+                const hiddenInput = document.createElement('input');
+                hiddenInput.type = 'hidden';
+                hiddenInput.name = input.name;
+                hiddenInput.value = input.value;
+                this.appendChild(hiddenInput);
+            });
+            
+            // 实际提交表单
+            this.submit();
+            
+            // 显示成功消息
+            document.getElementById('successNotification').style.display = 'block';
+            document.getElementById('errorNotification').style.display = 'none';
+            
+            // 清空表单
+            this.reset();
+        });
+        
+        // 检查URL参数，显示成功消息（当从FormSubmit返回时）
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('submit') === 'success') {
+            document.getElementById('successNotification').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
