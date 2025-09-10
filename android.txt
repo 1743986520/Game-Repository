@@ -29,3 +29,6 @@
 ##
 #v1.2下載（https://drive.google.com/file/d/1OHT3EEmjB1heB-FugTW3R6f-K1pboHhf/view?usp=drivesdk）#
 @
+###《孕育的摇篮之卵 The Cradle of Nurtured Eggs》###
+##这款游戏凭借出色的动作设计和新颖的题材，一经推出就受到了众多 ACT 爱好者的关注，为玩家带来了极具冲击力的动作游戏体验，是近期不容错过的佳作。##
+#v0.1.33()#
