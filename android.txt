@@ -32,7 +32,7 @@
 ###《孕育的摇篮之卵 The Cradle of Nurtured Eggs》###
 ##这款游戏凭借出色的动作设计和新颖的题材，一经推出就受到了众多 ACT 爱好者的关注，为玩家带来了极具冲击力的动作游戏体验，是近期不容错过的佳作。##
 #v0.1.33(https://drive.google.com/file/d/1ZU4wB8pxJE7IdgGqU7_EF82iYCpAvwFa/view?usp=drivesdk)#
-#vPC???()#
+#vPC???(https://drive.google.com/file/d/1AZsv7WWGhc50nEBnJfBFLp_HjoFV_uk_/view?usp=drivesdk)#
 @
 ###魅魔少女###
 ##本作的女主角就是一位超自然生物，自稱叫作加婭，外表跟一般少女一樣，卻擁有非比尋常的力量，而我們玩家扮演的男主角正是負責照顧跟觀測加婭的研究員─里歐，隨著觀測的進行，我們也會逐漸解開在加婭身上的各種謎團##
