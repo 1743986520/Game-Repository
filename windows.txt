@@ -54,3 +54,8 @@
 ###魔女的侵襲###
 ##系列包含《库洛的房间》《黛博拉的房间》，在神秘房间中对抗强大的魔女！目前遊戲包含第零章與第一章，其中第一章配有脫衣系統。玩家將在回合制戰鬥中與壞壞的魔女戰鬥，同時亦可和妹妹愛麗絲決鬥。##
 #v???(https://drive.google.com/file/d/1qX8mE-EKj3EI1_-R0rNWBWX5HZ-jTvhJ/view?usp=drivesdk)#
+@
+###虛擬少女開發計劃###
+##点击角色的手，引导她到所需的位置并进行互动。…抓住她的手…带她去某个地方…让她筋疲力尽…大量的牵手互动…你已经被警告了…##
+#v1.4.1(https://drive.google.com/file/d/1qX8mE-EKj3EI1_-R0rNWBWX5HZ-jTvhJ/view?usp=drivesdk)#
+@
