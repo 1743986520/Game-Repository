@@ -38,7 +38,6 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-image: url('002.jpg');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -48,7 +47,6 @@
     
     @media (orientation: portrait) {
       body::before {
-        background-image: url('001.jpg');
         opacity: 0.9; /* 竖屏模式下也提高透明度 */
       }
     }
@@ -310,6 +308,36 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
+      // 随机背景图片功能
+      function setRandomBackground() {
+        const isPortrait = window.innerHeight > window.innerWidth;
+        let folder, min, max;
+        
+        if (isPortrait) {
+          folder = 'photo/upright/';
+          min = 1;
+          max = 5;
+        } else {
+          folder = 'photo/Horizontal/';
+          min = 1;
+          max = 10;
+        }
+        
+        const randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
+        const bgImage = folder + randomNum + '.jpg';
+        
+        document.body.style.backgroundImage = `url('${bgImage}')`;
+        document.body.style.backgroundSize = 'cover';
+        document.body.style.backgroundPosition = 'center';
+        document.body.style.backgroundRepeat = 'no-repeat';
+      }
+      
+      // 初始设置背景
+      setRandomBackground();
+      
+      // 监听窗口大小变化，重新设置背景
+      window.addEventListener('resize', setRandomBackground);
+      
       const ageVerification = document.getElementById('age-verification');
       const btnYes = document.querySelector('.btn-yes');
       const btnNo = document.querySelector('.btn-no');
