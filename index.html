@@ -43,11 +43,13 @@
       background-position: center;
       background-repeat: no-repeat;
       z-index: -1;
+      opacity: 0.8; /* 增加背景图片的透明度 */
     }
     
     @media (orientation: portrait) {
       body::before {
         background-image: url('001.jpg');
+        opacity: 0.8; /* 竖屏模式下也增加透明度 */
       }
     }
     
@@ -65,7 +67,7 @@
     }
     
     .title-container {
-      background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(230, 233, 237, 0.9));
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.85), rgba(230, 233, 237, 0.85)); /* 稍微降低透明度 */
       border-radius: 16px;
       padding: 30px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
@@ -119,7 +121,7 @@
       justify-content: center;
       text-align: center;
       padding: 25px 20px;
-      background: rgba(255, 255, 255, 0.95);
+      background: rgba(255, 255, 255, 0.9); /* 稍微降低透明度 */
       border-radius: 12px;
       text-decoration: none;
       color: #3498db;
@@ -139,7 +141,7 @@
     }
     
     .disclaimer {
-      background: rgba(255, 248, 225, 0.9);
+      background: rgba(255, 248, 225, 0.85); /* 稍微降低透明度 */
       border-left: 4px solid #ffc107;
       padding: 15px;
       border-radius: 8px;
