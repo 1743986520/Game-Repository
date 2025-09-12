@@ -22,7 +22,7 @@
     }
     
     body {
-      background: linear-gradient(135deg, rgba(245, 247, 250, 0.7) 0%, rgba(228, 239, 233, 0.7) 100%); /* 进一步降低透明度 */
+      background: linear-gradient(135deg, rgba(245, 247, 250, 0.7) 0%, rgba(228, 239, 233, 0.7) 100%);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -42,12 +42,12 @@
       background-position: center;
       background-repeat: no-repeat;
       z-index: -1;
-      opacity: 0.9; /* 进一步提高背景图片的透明度 */
+      opacity: 0.9;
     }
     
     @media (orientation: portrait) {
       body::before {
-        opacity: 0.9; /* 竖屏模式下也提高透明度 */
+        opacity: 0.9;
       }
     }
     
@@ -65,14 +65,14 @@
     }
     
     .title-container {
-      background: linear-gradient(145deg, rgba(255, 255, 255, 0.75), rgba(230, 233, 237, 0.75)); /* 进一步降低透明度 */
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.75), rgba(230, 233, 237, 0.75));
       border-radius: 16px;
       padding: 30px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
       border: 1px solid rgba(255, 255, 255, 0.5);
       position: relative;
       overflow: hidden;
-      backdrop-filter: blur(2px); /* 添加轻微模糊效果增强背景可见性 */
+      backdrop-filter: blur(2px);
     }
     
     .title-container::before {
@@ -120,7 +120,7 @@
       justify-content: center;
       text-align: center;
       padding: 25px 20px;
-      background: rgba(255, 255, 255, 0.8); /* 进一步降低透明度 */
+      background: rgba(255, 255, 255, 0.8);
       border-radius: 12px;
       text-decoration: none;
       color: #3498db;
@@ -130,7 +130,7 @@
       transition: all 0.3s ease;
       min-height: 80px;
       line-height: 1.5;
-      backdrop-filter: blur(2px); /* 添加轻微模糊效果 */
+      backdrop-filter: blur(2px);
     }
     
     .menu li a:hover {
@@ -141,7 +141,7 @@
     }
     
     .disclaimer {
-      background: rgba(255, 248, 225, 0.8); /* 进一步降低透明度 */
+      background: rgba(255, 248, 225, 0.8);
       border-left: 4px solid #ffc107;
       padding: 15px;
       border-radius: 8px;
@@ -149,7 +149,7 @@
       text-align: center;
       font-size: 0.9rem;
       color: #5d4037;
-      backdrop-filter: blur(2px); /* 添加轻微模糊效果 */
+      backdrop-filter: blur(2px);
     }
     
     footer {
@@ -158,10 +158,10 @@
       margin-top: 30px;
       color: #7f8c8d;
       font-size: 0.9rem;
-      background: rgba(255, 255, 255, 0.6); /* 进一步降低透明度 */
+      background: rgba(255, 255, 255, 0.6);
       border-radius: 8px;
       width: 100%;
-      backdrop-filter: blur(2px); /* 添加轻微模糊效果 */
+      backdrop-filter: blur(2px);
     }
     
     /* 年龄验证弹窗样式 */
@@ -180,14 +180,14 @@
     }
     
     .age-modal {
-      background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(245, 247, 250, 0.95)); /* 稍微增加透明度 */
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(245, 247, 250, 0.95));
       border-radius: 16px;
       padding: 30px;
       width: 90%;
       max-width: 500px;
       text-align: center;
       box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-      backdrop-filter: blur(5px); /* 添加模糊效果 */
+      backdrop-filter: blur(5px);
     }
     
     .age-modal h2 {
@@ -326,10 +326,11 @@
         const randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
         const bgImage = folder + randomNum + '.jpg';
         
+        // 直接设置body::before伪元素的背景
         document.body.style.backgroundImage = `url('${bgImage}')`;
-        document.body.style.backgroundSize = 'cover';
-        document.body.style.backgroundPosition = 'center';
-        document.body.style.backgroundRepeat = 'no-repeat';
+        
+        // 添加调试信息
+        console.log('设置背景图片:', bgImage);
       }
       
       // 初始设置背景
