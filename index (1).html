@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S2RP40BPKD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S2RP40BPKD');
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>善良的人的遊戲庫</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Microsoft JhengHei', '微軟正黑體', Arial, sans-serif;
+    }
+    
+    body {
+      background: linear-gradient(135deg, rgba(245, 247, 250, 0.7) 0%, rgba(228, 239, 233, 0.7) 100%); /* 进一步降低透明度 */
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      position: relative;
+    }
+    
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('002.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      z-index: -1;
+      opacity: 0.9; /* 进一步提高背景图片的透明度 */
+    }
+    
+    @media (orientation: portrait) {
+      body::before {
+        background-image: url('001.jpg');
+        opacity: 0.9; /* 竖屏模式下也提高透明度 */
+      }
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 800px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+    
+    header {
+      text-align: center;
+      padding: 20px;
+    }
+    
+    .title-container {
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.75), rgba(230, 233, 237, 0.75)); /* 进一步降低透明度 */
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(2px); /* 添加轻微模糊效果增强背景可见性 */
+    }
+    
+    .title-container::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 60%);
+      transform: rotate(25deg);
+      z-index: 0;
+    }
+    
+    h1 {
+      font-size: 2.8rem;
+      color: #2c3e50;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 1;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      letter-spacing: 1px;
+    }
+    
+    .subtitle {
+      font-size: 1.2rem;
+      color: #7f8c8d;
+      font-weight: normal;
+      margin-top: 10px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .menu {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 20px;
+    }
+    
+    .menu li a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 25px 20px;
+      background: rgba(255, 255, 255, 0.8); /* 进一步降低透明度 */
+      border-radius: 12px;
+      text-decoration: none;
+      color: #3498db;
+      font-weight: bold;
+      font-size: 1.2rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      min-height: 80px;
+      line-height: 1.5;
+      backdrop-filter: blur(2px); /* 添加轻微模糊效果 */
+    }
+    
+    .menu li a:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      background: #3498db;
+      color: white;
+    }
+    
+    .disclaimer {
+      background: rgba(255, 248, 225, 0.8); /* 进一步降低透明度 */
+      border-left: 4px solid #ffc107;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 0 20px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #5d4037;
+      backdrop-filter: blur(2px); /* 添加轻微模糊效果 */
+    }
+    
+    footer {
+      text-align: center;
+      padding: 20px;
+      margin-top: 30px;
+      color: #7f8c8d;
+      font-size: 0.9rem;
+      background: rgba(255, 255, 255, 0.6); /* 进一步降低透明度 */
+      border-radius: 8px;
+      width: 100%;
+      backdrop-filter: blur(2px); /* 添加轻微模糊效果 */
+    }
+    
+    /* 年龄验证弹窗样式 */
+    #age-verification {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.85);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      backdrop-filter: blur(5px);
+    }
+    
+    .age-modal {
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(245, 247, 250, 0.95)); /* 稍微增加透明度 */
+      border-radius: 16px;
+      padding: 30px;
+      width: 90%;
+      max-width: 500px;
+      text-align: center;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(5px); /* 添加模糊效果 */
+    }
+    
+    .age-modal h2 {
+      color: #2c3e50;
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+    }
+    
+    .age-modal p {
+      color: #7f8c8d;
+      margin-bottom: 25px;
+      line-height: 1.6;
+    }
+    
+    .age-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 25px;
+    }
+    
+    .age-btn {
+      padding: 12px 30px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-yes {
+      background-color: #3498db;
+      color: white;
+    }
+    
+    .btn-yes:hover {
+      background-color: #2980b9;
+      transform: translateY(-3px);
+    }
+    
+    .btn-no {
+      background-color: #e74c3c;
+      color: white;
+    }
+    
+    .btn-no:hover {
+      background-color: #c0392b;
+      transform: translateY(-3px);
+    }
+    
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+      
+      .menu li a {
+        font-size: 1.1rem;
+        padding: 20px 15px;
+      }
+      
+      .age-modal {
+        padding: 20px;
+      }
+      
+      .age-buttons {
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      .age-btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 年龄验证弹窗 -->
+  <div id="age-verification">
+    <div class="age-modal">
+      <h2>年齡驗證</h2>
+      <p>本網站包含成人內容，請確認您是否已滿18歲？</p>
+      <p>如果您未滿18歲，我們將為您跳轉到更適合的遊戲網站。</p>
+      <div class="age-buttons">
+        <button class="age-btn btn-yes">是的，我已滿18歲</button>
+        <button class="age-btn btn-no">未滿18歲</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <header>
+      <div class="title-container">
+        <h1>善良的人的遊戲庫</h1>
+        <p class="subtitle">為愛發電，持續更新中<br>最近我要準備會考（國中的升學考試）所以更新比較慢<br>本網站本來是幫助沒有迅雷等中國網盤無法使用的人使用的，因此對於大陸並未優化，未來會持續努力</p>
+      </div>
+    </header>
+
+    <div class="disclaimer">
+      免責聲明：本網站內容僅供成人研究使用，請遵守當地法律法規
+    </div>
+
+    <main>
+      <ul class="menu">
+        <li><a href="explain.html">各種符號與狀況解釋<br>{遇到狀況請閱讀}</a></li>
+        <li><a href="Special for China.html">中国网友，请看这边！</a></li>
+        <li><a href="android.html">Android 遊戲</a></li>
+        <li><a href="windows.html">Windows 遊戲</a></li>
+        <li><a href="https://t.me/qeufthvggg">紙飛機群<br>歡迎大家</a></li>
+        <li><a href="https://mt2.cn/">手機請安裝MT管理器方便安裝應用<br>{點我下載}</a></li>
+      </ul>
+    </main>
+    
+    <footer>
+      <p>© 2025 善良的人的遊戲寶庫 - 所有權利保留</p>
+    </footer>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const ageVerification = document.getElementById('age-verification');
+      const btnYes = document.querySelector('.btn-yes');
+      const btnNo = document.querySelector('.btn-no');
+      
+      // 检查是否已经验证过年龄
+      if (localStorage.getItem('ageVerified') === 'true') {
+        ageVerification.style.display = 'none';
+        return;
+      }
+      
+      // 点击"是"的处理
+      btnYes.addEventListener('click', function() {
+        localStorage.setItem('ageVerified', 'true');
+        ageVerification.style.opacity = '0';
+        setTimeout(function() {
+          ageVerification.style.display = 'none';
+        }, 500);
+      });
+      
+      // 点击"否"的处理
+      btnNo.addEventListener('click', function() {
+        alert('這才是你該玩的！即將為您跳轉...');
+        window.location.href = 'https://1743986520.github.io/ooxx';
+      });
+    });
+  </script>
+</body>
+</html>
