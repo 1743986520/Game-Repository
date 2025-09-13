@@ -1,67 +1,42 @@
+/* 修改背景样式部分 */
 body {
-  font-family: "Microsoft JhengHei", Arial, sans-serif;
-  background: rgba(245, 245, 245, 0.9);
   margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-image: url('../photo/upright/001.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 100vh;
+  position: relative;
 }
 
-header {
-  background: rgba(51, 51, 51, 0.85);
-  color: white;
-  padding: 15px;
-  text-align: center;
-  backdrop-filter: blur(5px);
+/* 调整遮罩层透明度，从0.85改为0.75，让背景更清晰 */
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.75); /* 减少遮罩不透明度 */
+  z-index: -1;
 }
 
-header a {
-  color: rgba(221, 221, 221, 0.9);
-  text-decoration: none;
-  font-size: 14px;
-  transition: color 0.3s ease;
+/* 横向屏幕样式 - 增强背景清晰度 */
+@media (orientation: landscape) {
+  body {
+    background-image: url('../photo/level/001.jpg');
+    background-size: cover;
+    background-position: center center;
+  }
 }
 
-header a:hover {
-  color: white;
-}
-
-.menu {
-  list-style: none;
-  padding: 20px;
-  text-align: center;
-}
-
-.menu li {
-  margin: 15px 0;
-}
-
-.menu a {
-  font-size: 18px;
-  color: rgba(0, 123, 255, 0.8);
-  text-decoration: none;
-  transition: all 0.3s ease;
-  padding: 8px 15px;
-  border-radius: 4px;
-  display: inline-block;
-}
-
-.menu a:hover {
-  text-decoration: none;
-  background-color: rgba(0, 123, 255, 0.1);
-  color: rgba(0, 123, 255, 1);
-  transform: translateY(-2px);
-}
-
-.game-item {
-  background: rgba(255, 255, 255, 0.7);
-  margin: 10px;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  backdrop-filter: blur(10px);
-}
-
-.game-item:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  background: rgba(255, 255, 255, 0.8);
+/* 平板和电脑屏幕样式 - 增强背景清晰度 */
+@media (min-width: 768px) {
+  body {
+    background-image: url('../photo/level/001.jpg');
+    background-size: cover;
+    background-position: center center;
+  }
 }
