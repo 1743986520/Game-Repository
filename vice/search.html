@@ -208,12 +208,12 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="contactInfo">联系方式：</label>
+                        <label for="contactInfo">聯絡方式：</label>
                         <input type="text" id="contactInfo" name="contactInfo" required placeholder="聯絡方式">
                     </div>
                     
                     <div class="form-group">
-                        <label for="message">附加信息（可选）：</label>
+                        <label for="message">附加信息（可選）：</label>
                         <textarea id="message" name="message" rows="3" placeholder="如有特殊要求或版本說明，請在此填寫"></textarea>
                     </div>
                     
@@ -231,7 +231,7 @@
         </div>
         
         <footer>
-            <p>提交后我会尽快联系您</p>
+            <p>提交后我會盡快聯絡您</p>
         </footer>
     </div>
 
@@ -249,11 +249,11 @@
             
             // 添加隐藏字段以自定义电子邮件主题和内容
             const hiddenInputs = [
-                { name: "_subject", value: `游戏文件请求: ${gameName}` },
+                { name: "_subject", value: `遊戲文件請求: ${gameName}` },
                 { name: "_template", value: "table" },
                 { name: "_next", value: window.location.href + "?submit=success" },
-                { name: "游戏名称", value: gameName },
-                { name: "联系方式", value: contactInfo },
+                { name: "遊戲名稱", value: gameName },
+                { name: "聯絡方式", value: contactInfo },
                 { name: "附加信息", value: message || "无" }
             ];
             
