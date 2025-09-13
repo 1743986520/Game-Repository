@@ -90,14 +90,14 @@
     /* 横向屏幕样式 */
     @media (orientation: landscape) {
       body {
-        /* 背景图片将通过JavaScript设置 */
+        /* 背景图片将通过JS设置 */
       }
     }
     
     /* 平板和电脑屏幕样式 */
     @media (min-width: 768px) {
       body {
-        /* 背景图片将通过JavaScript设置 */
+        /* 背景图片将通过JS设置 */
       }
       
       header {
@@ -111,31 +111,9 @@
         margin: 0;
       }
     }
-    
-    /* 添加背景信息显示 */
-    .bg-info {
-      position: fixed;
-      bottom: 10px;
-      right: 10px;
-      background-color: rgba(0, 0, 0, 0.6);
-      color: white;
-      padding: 5px 10px;
-      border-radius: 4px;
-      font-size: 12px;
-      z-index: 1000;
-      opacity: 0.7;
-      transition: opacity 0.3s;
-    }
-    
-    .bg-info:hover {
-      opacity: 1;
-    }
   </style>
 </head>
 <body>
-  <!-- 背景信息显示 -->
-  <div class="bg-info" id="bg-info">背景图片: 加载中...</div>
-  
   <header>
     <h1>Android 遊戲庫</h1>
     <a href="../index.html">← 返回首頁</a>
@@ -149,52 +127,49 @@
 
   <script src="../Library/parser for android.js"></script>
   <script>
-    // 生成图片路径数组 (001.jpg 到 020.jpg)
-    function generateImagePaths() {
-      const paths = [];
-      for (let i = 1; i <= 20; i++) {
-        // 格式化数字，确保是三位数
-        const num = i.toString().padStart(3, '0');
-        paths.push(`../photo/level/${num}.jpg`);
-      }
-      return paths;
+    // 背景图片数组
+    const uprightImages = [];
+    const levelImages = [];
+    
+    // 生成图片路径数组
+    for (let i = 1; i <= 10; i++) {
+      uprightImages.push(`../photo/upright/${String(i).padStart(3, '0')}.jpg`);
     }
-
-    // 获取随机背景图片
-    function getRandomBackground() {
-      const images = generateImagePaths();
-      const randomIndex = Math.floor(Math.random() * images.length);
-      return images[randomIndex];
+    
+    for (let i = 1; i <= 30; i++) {
+      levelImages.push(`../photo/level/${String(i).padStart(3, '0')}.jpg`);
     }
-
-    // 设置背景图片
+    
+    // 随机选择背景图片
     function setRandomBackground() {
-      const bgImage = getRandomBackground();
-      document.body.style.backgroundImage = `url('${bgImage}')`;
+      let randomImage;
       
-      // 更新背景信息显示
-      const bgInfo = document.getElementById('bg-info');
-      if (bgInfo) {
-        const bgName = bgImage.split('/').pop();
-        bgInfo.textContent = `背景图片: ${bgName}`;
+      // 检测屏幕方向
+      if (window.innerWidth > window.innerHeight) {
+        // 横屏
+        const randomIndex = Math.floor(Math.random() * levelImages.length);
+        randomImage = levelImages[randomIndex];
+      } else {
+        // 竖屏
+        const randomIndex = Math.floor(Math.random() * uprightImages.length);
+        randomImage = uprightImages[randomIndex];
       }
       
-      console.log(`背景已更换为: ${bgImage}`);
+      // 设置背景图片
+      document.body.style.backgroundImage = `url('${randomImage}')`;
     }
-
-    // 初始化背景和定时器
-    function initBackground() {
-      // 页面加载时设置随机背景
-      setRandomBackground();
-      
-      // 设置每5分钟更换背景的定时器 (300000毫秒 = 5分钟)
-      setInterval(setRandomBackground, 300000);
-    }
-
-    // 页面加载完成后初始化
-    window.addEventListener('load', initBackground);
-
-    // 以下是原有的游戏数据加载和搜索功能
+    
+    // 初始化
+    setRandomBackground();
+    
+    // 每5分钟更换一次背景
+    setInterval(setRandomBackground, 5 * 60 * 1000);
+    
+    // 监听屏幕方向变化
+    window.addEventListener('resize', setRandomBackground);
+    window.addEventListener('orientationchange', setRandomBackground);
+    
+    // 原有代码保持不变
     let allGames = []; // 存储所有游戏数据
     
     // 获取数据并渲染游戏
