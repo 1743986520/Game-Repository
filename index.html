@@ -38,17 +38,16 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-image: url('photo/level/001.jpg');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
       z-index: -1;
       opacity: 0.9; /* 进一步提高背景图片的透明度 */
+      transition: background-image 1s ease-in-out;
     }
     
     @media (orientation: portrait) {
       body::before {
-        background-image: url('photo/upright/001.jpg');
         opacity: 0.9; /* 竖屏模式下也提高透明度 */
       }
     }
@@ -318,6 +317,9 @@
       // 检查是否已经验证过年龄
       if (localStorage.getItem('ageVerified') === 'true') {
         ageVerification.style.display = 'none';
+        // 年龄验证通过后设置背景
+        setRandomBackground();
+        setBackgroundRotationTimer();
         return;
       }
       
@@ -327,6 +329,9 @@
         ageVerification.style.opacity = '0';
         setTimeout(function() {
           ageVerification.style.display = 'none';
+          // 年龄验证通过后设置背景
+          setRandomBackground();
+          setBackgroundRotationTimer();
         }, 500);
       });
       
@@ -335,6 +340,38 @@
         alert('這才是你該玩的！即將為您跳轉...');
         window.location.href = 'https://1743986520.github.io/ooxx';
       });
+      
+      // 设置随机背景函数
+      function setRandomBackground() {
+        const isPortrait = window.innerHeight > window.innerWidth;
+        let randomNum;
+        let folder;
+        
+        if (isPortrait) {
+          // 竖屏模式：从001.jpg到010.jpg中随机选择
+          randomNum = Math.floor(Math.random() * 10) + 1;
+          folder = 'photo/upright/';
+        } else {
+          // 横屏模式：从001.jpg到030.jpg中随机选择
+          randomNum = Math.floor(Math.random() * 30) + 1;
+          folder = 'photo/level/';
+        }
+        
+        // 格式化数字，确保是三位数
+        const formattedNum = randomNum.toString().padStart(3, '0');
+        const bgImage = `${folder}${formattedNum}.jpg`;
+        
+        // 设置背景图片
+        document.body.style.backgroundImage = `url('${bgImage}')`;
+        document.body.style.backgroundSize = 'cover';
+        document.body.style.backgroundPosition = 'center';
+        document.body.style.backgroundRepeat = 'no-repeat';
+      }
+      
+      // 设置背景轮换定时器（每5分钟）
+      function setBackgroundRotationTimer() {
+        setInterval(setRandomBackground, 5 * 60 * 1000); // 5分钟
+      }
     });
   </script>
 </body>
