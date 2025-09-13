@@ -116,7 +116,7 @@
 <body>
   <header>
     <h1>Android 遊戲庫</h1>
-    <a href="index.html">← 返回首頁</a>
+    <a href="../index.html">← 返回首頁</a>
   </header>
 
   <div class="search-container">
@@ -125,12 +125,12 @@
 
   <main id="game-list"></main>
 
-  <script src="Library/parser for android.js"></script>
+  <script src="../Library/parser for android.js"></script>
   <script>
     let allGames = []; // 存储所有游戏数据
     
     // 获取数据并渲染游戏
-    fetch("Library/android.txt")
+    fetch("../Library/android.txt")
       .then(res => res.text())
       .then(text => {
         // 存储所有游戏数据
