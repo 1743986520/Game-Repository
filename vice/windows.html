@@ -10,12 +10,12 @@
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
-      background-image: url('../photo/upright/001.jpg');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
       min-height: 100vh;
       position: relative;
+      transition: background-image 1s ease-in-out;
     }
     
     /* 添加半透明遮罩以提高文字可读性 */
@@ -89,16 +89,12 @@
     
     /* 横向屏幕样式 */
     @media (orientation: landscape) {
-      body {
-        background-image: url('../photo/level/001.jpg');
-      }
+      /* 移除固定背景图，由JS控制 */
     }
     
     /* 平板和电脑屏幕样式 */
     @media (min-width: 768px) {
-      body {
-        background-image: url('../photo/level/001.jpg');
-      }
+      /* 移除固定背景图，由JS控制 */
       
       header {
         display: flex;
@@ -128,6 +124,33 @@
   <script src="../Library/parser for windows.js"></script>
   <script>
     let allGames = []; // 存储所有游戏数据
+    let backgroundInterval; // 存储定时器引用
+    
+    // 随机背景图片功能
+    function setRandomBackground() {
+      const isLandscape = window.innerWidth > window.innerHeight || window.innerWidth >= 768;
+      const orientation = isLandscape ? 'level' : 'upright';
+      const maxNumber = orientation === 'level' ? 30 : 10;
+      
+      // 生成随机数，确保是三位数格式
+      const randomNum = Math.floor(Math.random() * maxNumber) + 1;
+      const randomNumStr = randomNum.toString().padStart(3, '0');
+      
+      // 设置背景图片
+      document.body.style.backgroundImage = `url('../photo/${orientation}/${randomNumStr}.jpg')`;
+    }
+    
+    // 初始化背景并设置定时器
+    function initBackground() {
+      // 页面加载时立即设置一次随机背景
+      setRandomBackground();
+      
+      // 设置每5分钟更换背景的定时器
+      backgroundInterval = setInterval(setRandomBackground, 5 * 60 * 1000);
+      
+      // 监听窗口大小变化，调整背景
+      window.addEventListener('resize', setRandomBackground);
+    }
     
     // 获取数据并渲染游戏
     fetch("../Library/windows.txt")
@@ -140,6 +163,9 @@
         // 添加搜索事件监听
         const searchInput = document.getElementById('search-input');
         searchInput.addEventListener('input', handleSearch);
+        
+        // 初始化背景
+        initBackground();
       });
     
     // 处理搜索功能
