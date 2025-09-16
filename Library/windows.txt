@@ -159,3 +159,7 @@ v???安卓（https://drive.google.com/file/d/109g7dV8tnZF0dsHPpkS3D-oIR2Rb6d9f/v
 ##无防备地小睡的她，鬼迷心窍般地——通过点击和拖动与之互动，根据你的操作，将模拟出她会做出各种实时的反应。除了鼠标操作,还能通过选项和她搭话，选择一些行动。最后还可以进行本垒互动，有动态断面设置和显示。##
 #v0.93(https://drive.google.com/file/d/1RAj_Yekn_JWb1aFsdIIxt-Xwsmxsbrl6/view?usp=sharing)#
 @
+###凌辱地牢的倖存者###
+##凌辱地牢的幸存者》是一款2.5D的幸存者Roguelike玩法的冒险游戏。十多名不同职业的可爱女孩，需要拿起武器保护自己，在这个充满了多种魔物的危险地牢中，努力幸存下来！如果不小心受到特殊魔物的攻击，她们将会遭受无情的凌辱！成功进行QTE来脱逃！她们的衣服将在受到伤害时逐渐溶解……购买独特的战斗道具来改变角色的造型。随机生成的地牢、丰富的武器与道具、各式各样的敌人，增加可玩性与策略性。##
+#v1.01(https://drive.google.com/file/d/1Ky04RN3eMchqfK3LoCTp5SJs3j_PvSj3/view?usp=sharing)#
+@
