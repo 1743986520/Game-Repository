@@ -50,9 +50,27 @@
       const pcList = document.getElementById('pc-list');
       pcList.innerHTML = '';
       pcs.forEach(pc => {
-        const statusText = pc.status === '1' ? '離線' : pc.status === '2' ? '空閒' : '已被佔用';
-        const cardClass = pc.status === '1' ? 'card-offline' : pc.status === '2' ? 'card-online' : 'card-occupied';
-        const clickable = pc.status === '2' ? 'pointer' : 'default';
+        // 修正狀態判斷邏輯
+        let statusText, cardClass, clickable;
+        
+        if (pc.status === '1') {
+          statusText = '離線';
+          cardClass = 'card-offline';
+          clickable = 'default';
+        } else if (pc.status === '2') {
+          statusText = '空閒';
+          cardClass = 'card-online';
+          clickable = 'pointer';
+        } else if (pc.status === '3') {
+          statusText = '已被佔用';
+          cardClass = 'card-occupied';
+          clickable = 'default';
+        } else {
+          statusText = '未知狀態';
+          cardClass = 'card-offline';
+          clickable = 'default';
+        }
+
         const pcCard = `
           <div class="col-md-4 mb-3">
             <div class="card ${cardClass}" style="cursor: ${clickable};">
@@ -71,13 +89,21 @@
 
         // 點擊事件
         if (pc.status === '2') {
+          // 只有空閒的電腦可以點擊顯示詳細資訊
           document.querySelector(`#details-${pc.name}`).parentElement.addEventListener('click', () => {
             const details = document.querySelector(`#details-${pc.name}`);
             details.style.display = details.style.display === 'none' ? 'block' : 'none';
           });
         } else {
+          // 離線或被佔用的電腦點擊時顯示提示
           document.querySelector(`#details-${pc.name}`).parentElement.addEventListener('click', () => {
-            alert(pc.status === '1' ? '電腦離線，無法連接！' : '電腦已被佔用！');
+            if (pc.status === '1') {
+              alert('電腦離線，無法連接！');
+            } else if (pc.status === '3') {
+              alert('電腦已被佔用！');
+            } else {
+              alert('電腦目前無法使用！');
+            }
           });
         }
       });
