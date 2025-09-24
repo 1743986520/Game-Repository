@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>海外云電腦</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .card-offline { border-color: #6c757d; background-color: #f8f9fa; }
+    .card-online { border-color: #28a745; background-color: #e6f4ea; }
+    .card-occupied { border-color: #dc3545; background-color: #f8d7da; }
+    .connection-details { display: none; padding: 10px; background-color: #f1f1f1; border-radius: 5px; margin-top: 10px; }
+    .copy-btn { margin-left: 10px; }
+  </style>
+</head>
+<body>
+  <div class="container my-5">
+    <h1 class="text-center mb-3">海外云電腦</h1>
+    <p class="text-center text-muted mb-4">本項目目前處於測試階段，請謹慎使用，且勿留下個人資料於云電腦</p>
+    <div class="text-center mb-4">
+      <a href="https://www.workslink.com/zh/download/" class="btn btn-primary me-2">遠控軟件安裝</a>
+      <a href="https://1743986520.github.io/Game-Repository/" class="btn btn-secondary">返回</a>
+    </div>
+    <div id="pc-list" class="row"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // 替換為您的 computers.txt raw URL
+    const TXT_URL = '../Library/computers.txt';
+
+    // 解析 computers.txt
+    function parseComputers(data) {
+      const pcs = [];
+      const lines = data.trim().split('\n');
+      for (let i = 0; i < lines.length; i += 4) {
+        if (lines[i] && lines[i + 1] && lines[i + 2] && lines[i + 3]) {
+          const name = lines[i].trim();
+          const id = lines[i + 1].replace('ID:', '').trim();
+          const authCode = lines[i + 2].replace('授權碼：', '').trim();
+          const status = lines[i + 3].replace('狀態：', '').trim();
+          pcs.push({ name, id, authCode, status });
+        }
+      }
+      return pcs;
+    }
+
+    // 顯示 PC 列表
+    function displayPCs(pcs) {
+      const pcList = document.getElementById('pc-list');
+      pcList.innerHTML = '';
+      pcs.forEach(pc => {
+        const statusText = pc.status === '1' ? '離線' : pc.status === '2' ? '空閒' : '已被佔用';
+        const cardClass = pc.status === '1' ? 'card-offline' : pc.status === '2' ? 'card-online' : 'card-occupied';
+        const clickable = pc.status === '2' ? 'pointer' : 'default';
+        const pcCard = `
+          <div class="col-md-4 mb-3">
+            <div class="card ${cardClass}" style="cursor: ${clickable};">
+              <div class="card-body">
+                <h5 class="card-title">${pc.name}</h5>
+                <p class="card-text">狀態：${statusText}</p>
+                <div class="connection-details" id="details-${pc.name}">
+                  <p>ID: ${pc.id} <button class="btn btn-sm btn-outline-secondary copy-btn" onclick="copyText('${pc.id}')">複製</button></p>
+                  <p>授權碼: ${pc.authCode} <button class="btn btn-sm btn-outline-secondary copy-btn" onclick="copyText('${pc.authCode}')">複製</button></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+        pcList.insertAdjacentHTML('beforeend', pcCard);
+
+        // 點擊事件
+        if (pc.status === '2') {
+          document.querySelector(`#details-${pc.name}`).parentElement.addEventListener('click', () => {
+            const details = document.querySelector(`#details-${pc.name}`);
+            details.style.display = details.style.display === 'none' ? 'block' : 'none';
+          });
+        } else {
+          document.querySelector(`#details-${pc.name}`).parentElement.addEventListener('click', () => {
+            alert(pc.status === '1' ? '電腦離線，無法連接！' : '電腦已被佔用！');
+          });
+        }
+      });
+    }
+
+    // 複製到剪貼簿
+    function copyText(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        alert('已複製到剪貼簿！');
+      }).catch(() => {
+        alert('複製失敗，請手動複製！');
+      });
+    }
+
+    // 載入並刷新數據
+    function loadComputers() {
+      fetch(TXT_URL)
+        .then(response => response.text())
+        .then(data => {
+          const pcs = parseComputers(data);
+          displayPCs(pcs);
+        })
+        .catch(error => {
+          console.error('Error fetching computers.txt:', error);
+          document.getElementById('pc-list').innerHTML = '<p class="text-center text-danger">無法載入雲電腦列表，請檢查 computers.txt！</p>';
+        });
+    }
+
+    // 初始載入
+    loadComputers();
+    // 每 60 秒刷新
+    setInterval(loadComputers, 60000);
+  </script>
+</body>
+</html>
