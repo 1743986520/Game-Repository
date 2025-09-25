@@ -11,6 +11,7 @@
     .card-occupied { border-color: #dc3545; background-color: #f8d7da; }
     .connection-details { display: none; padding: 10px; background-color: #f1f1f1; border-radius: 5px; margin-top: 10px; }
     .copy-btn { margin-left: 10px; }
+    .note-text { font-size: 0.9rem; color: #6c757d; margin-top: 20px; }
   </style>
 </head>
 <body>
@@ -22,19 +23,46 @@
       <a href="https://1743986520.github.io/Game-Repository/" class="btn btn-secondary">返回</a>
     </div>
     <div id="pc-list" class="row"></div>
+    
+    <!-- 嵌入式 computers.txt 資料 -->
+    <script id="computers-data" type="text/plain">
+PC-1
+ID:245746682
+授權碼:123456
+狀態:2
+PC-2
+ID:1012654893
+授權碼:123456
+狀態:1
+PC-3
+ID:987654321
+授權碼:654321
+狀態:3
+    </script>
+    
+    <p class="text-center note-text">※ 電腦不會24小時在線，所以可以嘗試連接，但是不一定連接成功</p>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    // 請根據你的實際路徑修改這個 URL
-    const TXT_URL = 'https://raw.githubusercontent.com/1743986520/Game-Repository/main/Library/computers.txt';
+    // 從嵌入式資料讀取
+    function loadComputers() {
+      const dataElement = document.getElementById('computers-data');
+      const data = dataElement.textContent;
+      
+      console.log('嵌入式數據:', data); // 除錯用
+      
+      const pcs = parseComputers(data);
+      console.log('解析後的電腦列表:', pcs); // 除錯用
+      displayPCs(pcs);
+    }
 
-    // 解析 computers.txt
+    // 解析 computers.txt 格式
     function parseComputers(data) {
       const pcs = [];
       const lines = data.trim().split('\n');
       
-      console.log('原始數據:', lines); // 除錯用
+      console.log('原始數據行數:', lines.length); // 除錯用
       
       for (let i = 0; i < lines.length; i += 4) {
         if (i + 3 < lines.length) {
@@ -43,14 +71,16 @@
           const authLine = lines[i + 2].trim();
           const statusLine = lines[i + 3].trim();
           
-          // 正確解析每一行
-          const id = idLine.replace('ID:', '').trim();
-          const authCode = authLine.replace('授權碼:', '').trim();
-          const status = statusLine.replace('狀態:', '').trim();
-          
-          console.log(`解析電腦 ${name}:`, {id, authCode, status}); // 除錯用
-          
-          pcs.push({ name, id, authCode, status });
+          // 檢查是否為有效數據
+          if (name && idLine.startsWith('ID:') && authLine.startsWith('授權碼:') && statusLine.startsWith('狀態:')) {
+            const id = idLine.replace('ID:', '').trim();
+            const authCode = authLine.replace('授權碼:', '').trim();
+            const status = statusLine.replace('狀態:', '').trim();
+            
+            console.log(`解析電腦 ${name}:`, {id, authCode, status}); // 除錯用
+            
+            pcs.push({ name, id, authCode, status });
+          }
         }
       }
       return pcs;
@@ -151,31 +181,8 @@
       });
     }
 
-    // 載入並刷新數據
-    function loadComputers() {
-      fetch(TXT_URL)
-        .then(response => {
-          if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-          }
-          return response.text();
-        })
-        .then(data => {
-          console.log('獲取到的數據:', data); // 除錯用
-          const pcs = parseComputers(data);
-          console.log('解析後的電腦列表:', pcs); // 除錯用
-          displayPCs(pcs);
-        })
-        .catch(error => {
-          console.error('Error fetching computers.txt:', error);
-          document.getElementById('pc-list').innerHTML = '<p class="text-center text-danger">無法載入雲電腦列表，請檢查 computers.txt 路徑！</p>';
-        });
-    }
-
     // 初始載入
     loadComputers();
-    // 每 60 秒刷新
-    setInterval(loadComputers, 40000);
   </script>
 </body>
 </html>
