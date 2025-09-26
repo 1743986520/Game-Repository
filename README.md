@@ -42,7 +42,7 @@ Game-Repository/
 ```
 
 **Android 遊戲**：編輯 `Library/android.txt`
-格式與 Windows 相同，使用 `@` 分隔不同遊戲
+格式與 Windows 相同，使用 `@` 分隔不同遊戲，最後一個項目也要寫，不然很浪費性能，因為沒有@他的解析就不會停
 
 ### 3. 圖片資源替換
 - 背景圖片：替換 `photo/level/`（橫屏）和 `photo/upright/`（豎屏）中的圖片
