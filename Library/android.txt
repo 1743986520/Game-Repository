@@ -111,3 +111,8 @@ v1.5.2（ https://drive.google.com/file/d/1N1ULRZhjrD7WvBihG2DQU6zPalqHhi2G/view
 #V1.0(https://drive.google.com/file/d/16mZQab0KTax8d-G4WHx4vkMhv7Sy2U0g/view?usp=sharing)#
 #v???.PC(https://drive.google.com/file/d/1sy91FnTOES6dEd7U8cH9tPmeerHnS3PW/view?usp=sharing)#
 @
+###殭屍生活2 僵局###
+##遊戲介紹:說起殭屍生活這款遊戲，相信大家已經不陌生了非常難得的歐美2D風格，畫風社保劇情有趣!前作已經更新完結。 [劇情介紹]:這次還是發生在猩紅城的故事但不是發生在佐米營那個度假勝地了這次換成另外一個男孩跟著母親，姐姐新搬到猩紅城居住隨著殭屍病毒的擴散，猩紅城到處都已經不安全了。本作男主角的周邊也發生了生化殭屍危機，而且似乎只有男性會變成殭屍##
+#v0.23.1_Beta()#
+#v0.23.1_Bate_PC版()#
+@
