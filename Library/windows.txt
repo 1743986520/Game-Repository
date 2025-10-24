@@ -299,3 +299,7 @@
 #v0.01(https://drive.google.com/file/d/1T1eVFb-63W-C7hHXReWLFsL7yrAvnnB1/view?usp=drivesdk)#
 #v0.01.安卓(https://drive.google.com/file/d/1ycwwcgkaKruXFVuhisO3_RzavkgIY5xe/view?usp=drivesdk)#
 @
+###クロア×スクランブル###
+##一款結合異能力與成人情節的角色扮演遊戲（RPG）。玩家將扮演被冤枉並降級的特務機關「LUNA」的前S級能力者月影クロア，她因一次任務失敗而受到懲罰。本作描繪了クロア在地方都市夜光市的復仇之路，並試圖恢復自己的榮耀。玩家將一邊解決小型事件，一邊迎戰強大的敵人，努力再度成為S級特務。##
+#v1.05下載(https://drive.google.com/file/d/1YWvBWbV4tfY9utDs01Bjjo_kfMW9hQ1A/view?usp=sharing)#
+@
