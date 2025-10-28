@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-S2RP40BPKD"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -11,7 +9,7 @@
 </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>善良的人的遊戲庫</title>
+  <title>善良的人的遊戲庫-VPN專區</title>
   <link rel="icon" href="photo/title/favicon.ico" type="image/x-icon">
   <style>
     * {
@@ -165,81 +163,6 @@
       backdrop-filter: blur(2px); /* 添加轻微模糊效果 */
     }
     
-    /* 年龄验证弹窗样式 */
-    #age-verification {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.85);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-      backdrop-filter: blur(5px);
-    }
-    
-    .age-modal {
-      background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(245, 247, 250, 0.95)); /* 稍微增加透明度 */
-      border-radius: 16px;
-      padding: 30px;
-      width: 90%;
-      max-width: 500px;
-      text-align: center;
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-      backdrop-filter: blur(5px); /* 添加模糊效果 */
-    }
-    
-    .age-modal h2 {
-      color: #2c3e50;
-      margin-bottom: 20px;
-      font-size: 1.8rem;
-    }
-    
-    .age-modal p {
-      color: #7f8c8d;
-      margin-bottom: 25px;
-      line-height: 1.6;
-    }
-    
-    .age-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin-top: 25px;
-    }
-    
-    .age-btn {
-      padding: 12px 30px;
-      border: none;
-      border-radius: 8px;
-      font-size: 1.1rem;
-      font-weight: bold;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    
-    .btn-yes {
-      background-color: #3498db;
-      color: white;
-    }
-    
-    .btn-yes:hover {
-      background-color: #2980b9;
-      transform: translateY(-3px);
-    }
-    
-    .btn-no {
-      background-color: #e74c3c;
-      color: white;
-    }
-    
-    .btn-no:hover {
-      background-color: #c0392b;
-      transform: translateY(-3px);
-    }
-    
     @media (max-width: 600px) {
       h1 {
         font-size: 2.2rem;
@@ -248,19 +171,6 @@
       .menu li a {
         font-size: 1.1rem;
         padding: 20px 15px;
-      }
-      
-      .age-modal {
-        padding: 20px;
-      }
-      
-      .age-buttons {
-        flex-direction: column;
-        gap: 15px;
-      }
-      
-      .age-btn {
-        width: 100%;
       }
     }
   </style>
@@ -293,36 +203,9 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      const ageVerification = document.getElementById('age-verification');
-      const btnYes = document.querySelector('.btn-yes');
-      const btnNo = document.querySelector('.btn-no');
-      
-      // 检查是否已经验证过年龄
-      if (localStorage.getItem('ageVerified') === 'true') {
-        ageVerification.style.display = 'none';
-        // 年龄验证通过后设置背景
-        setRandomBackground();
-        setBackgroundRotationTimer();
-        return;
-      }
-      
-      // 点击"是"的处理
-      btnYes.addEventListener('click', function() {
-        localStorage.setItem('ageVerified', 'true');
-        ageVerification.style.opacity = '0';
-        setTimeout(function() {
-          ageVerification.style.display = 'none';
-          // 年龄验证通过后设置背景
-          setRandomBackground();
-          setBackgroundRotationTimer();
-        }, 500);
-      });
-      
-      // 点击"否"的处理
-      btnNo.addEventListener('click', function() {
-        alert('這才是你該玩的！即將為您跳轉...');
-        window.location.href = 'https://1743986520.github.io/ooxx';
-      });
+      // 页面加载后立即设置背景
+      setRandomBackground();
+      setBackgroundRotationTimer();
       
       // 设置随机背景函数
       function setRandomBackground() {
