@@ -305,3 +305,7 @@
 #v1.093下載(https://drive.google.com/file/d/1leBDIPD_Afjyq9BKYsOMU7gCDFV4eD9E/view?usp=sharing)#
 #v1.094下載(https://drive.google.com/file/d/1C2tukk905d7OtjK7NvuA7xJ0nqGJDfy4/view?usp=sharing)#
 @
+###身体測定士のおしごと###
+##透過觸摸檢查來提升「親密度」！身體測量H模擬器，作為少子化對策法的一部分，新增設了「身體測量師」資格。，剛取得資格的你，今天是第一天上班！為了讓她們能誕下更多健康的寶寶，就讓我們仔細地檢查她們的身體吧！隨著不斷的檢查，與她們之間的「親密度」也會逐漸提升，說不定還會發生一些「好事」喔……##
+#v???下載(https://drive.google.com/file/d/1qqEyzzc-KtRDHFYBz5spUOnQd-0ZOLdq/view?usp=drivesdk)#
+@
