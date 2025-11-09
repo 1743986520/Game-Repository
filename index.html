@@ -11,9 +11,9 @@
 </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>遊戲下載庫 - Android和Windows免費成人遊戲資源</title>
-  <meta name="description" content="免費遊戲資源下載，提供豐富的Android和PC成人遊戲。包含RPG、冒險、模擬等多種類型遊戲，持續更新分享。">
-  <meta name="keywords" content="遊戲下載,Android遊戲,Windows遊戲,免費遊戲,遊戲資源">
+  <title>善良的人的遊戲庫</title>
+  <meta name="description" content="免費成人遊戲資源下載，提供豐富的Android和PC遊戲。包含RPG、視覺小說、模擬經營等多種類型遊戲，持續更新分享。">
+  <meta name="keywords" content="成人遊戲下載,Android遊戲,Windows遊戲,免費遊戲,RPG遊戲,視覺小說">
   <link rel="icon" href="photo/title/favicon.ico" type="image/x-icon">
   <style>
     * {
@@ -175,7 +175,7 @@
       width: 100%;
       height: 100%;
       background-color: rgba(0, 0, 0, 0.85);
-      display: flex;
+      display: none; /* 默认隐藏，通过JS控制 */
       justify-content: center;
       align-items: center;
       z-index: 9999;
@@ -251,6 +251,11 @@
       border-radius: 8px;
       margin: 20px 0;
     }
+
+    /* 隐藏主内容的样式 */
+    #main-content {
+      display: block; /* 默认显示，JS会控制 */
+    }
     
     @media (max-width: 600px) {
       h1 {
@@ -278,14 +283,47 @@
   </style>
 </head>
 <body>
-  <!-- 搜索引擎看到的說明文字 -->
-  <div style="display:none;">
-    <h1>遊戲資源下載庫</h1>
-    <p>提供免費Android和Windows 成人遊戲下載，包含各類遊戲資源，持續更新分享遊戲內容。</p>
-    <p>遊戲類型包含角色扮演、視覺小說、模擬經營、冒險解謎等。</p>
+  <!-- 搜索引擎看到的真實網站內容 -->
+  <div id="main-content">
+    <div class="container">
+      <header>
+        <div class="title-container">
+          <h1>善良的人的遊戲庫</h1>
+          <p class="subtitle">為愛發電，持續更新中<br>最近我要準備會考（國中的升學考試）所以更新比較慢<br>本網站本來是幫助沒有迅雷等中國網盤無法使用的人使用的<br>因此對於大陸並未優化，未來會持續努力<br>搜索遊戲請用繁體中文</p>
+        </div>
+      </header>
+
+      <div class="disclaimer">
+        免責聲明：本網站內容僅供成人研究使用，請遵守當地法律法規
+      </div>
+
+      <div class="site-description">
+        <p>免費成人遊戲資源分享網站 - 提供Android手機遊戲和Windows電腦遊戲下載</p>
+        <p>包含RPG、視覺小說、模擬經營、冒險解謎等多種類型遊戲資源</p>
+      </div>
+
+      <main>
+        <ul class="menu">
+          <li><a href="vice/explain.html">各種符號與狀況解釋<br>{遇到狀況請閱讀}</a></li>
+          <li><a href="vice/Special for China.html">中国网友，请看这边！</a></li>
+          <li><a href="https://www.wuacg.cn/">友站[ACG遊戲社]</a></li>
+          <li><a href="vice/VPN.html">VPN專區</a></li>
+          <li><a href="vice/search.html">找不到滿意的遊戲看這邊</a></li>
+          <!--<li><a href="vice/WEB_PC.html">免費雲電腦<br>目前處於測試階段，請謹慎使用</a></li>-->
+          <li><a href="vice/android.html">Android 遊戲</a></li>
+          <li><a href="vice/windows.html">Windows 遊戲</a></li>
+          <li><a href="https://t.me/+r7qCAeeG8ZU2Y2Rl">紙飛機群<br>歡迎大家</a></li>
+          <li><a href="https://github.com/1743986520/Game-Repository/tree/main">網站原碼<br>可以直接拿去用</a></li>
+        </ul>
+      </main>
+      
+      <footer>
+        <p>© 2025 善良的人的遊戲寶庫 - 所有權利保留</p>
+      </footer>
+    </div>
   </div>
 
-  <!-- 年龄验证弹窗 -->
+  <!-- 年齡驗證彈窗 - 通過JS控制顯示 -->
   <div id="age-verification">
     <div class="age-modal">
       <h2>年齡驗證</h2>
@@ -298,68 +336,33 @@
     </div>
   </div>
 
-  <div class="container">
-    <header>
-      <div class="title-container">
-        <h1>善良的人的遊戲庫</h1>
-        <p class="subtitle">為愛發電，持續更新中<br>最近我要準備會考（國中的升學考試）所以更新比較慢<br>本網站本來是幫助沒有迅雷等中國網盤無法使用的人使用的<br>因此對於大陸並未優化，未來會持續努力<br>搜索遊戲請用繁體中文</p>
-      </div>
-    </header>
-
-    <div class="disclaimer">
-      免責聲明：本網站內容僅供成人研究使用，請遵守當地法律法規
-    </div>
-
-    <div class="site-description">
-      <p>遊戲資源分享網站 - 提供Android手機遊戲和Windows電腦成人遊戲下載</p>
-      <p>包含各類型遊戲資源，不定期更新遊戲內容</p>
-    </div>
-
-    <main>
-      <ul class="menu">
-        <li><a href="vice/explain.html">各種符號與狀況解釋<br>{遇到狀況請閱讀}</a></li>
-        <li><a href="vice/Special for China.html">中国网友，请看这边！</a></li>
-         <li><a href="https://www.wuacg.cn/">友站[ACG遊戲社]</a></li>
-         <li><a href="vice/VPN.html">VPN專區</a></li>
-        <li><a href="vice/search.html">找不到滿意的遊戲看這邊</a></li>
-        <!--<li><a href="vice/WEB_PC.html">免費雲電腦<br>目前處於測試階段，請謹慎使用</a></li>-->
-        <li><a href="vice/android.html">Android 遊戲</a></li>
-        <li><a href="vice/windows.html">Windows 遊戲</a></li>
-        <li><a href="https://t.me/+r7qCAeeG8ZU2Y2Rl">紙飛機群<br>歡迎大家</a></li>
-        <li><a href="https://github.com/1743986520/Game-Repository/tree/main">網站原碼<br>可以直接拿去用</a></li>
-      </ul>
-    </main>
-    
-    <footer>
-      <p>© 2025 善良的人的遊戲寶庫 - 所有權利保留</p>
-    </footer>
-  </div>
-
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const ageVerification = document.getElementById('age-verification');
+      const mainContent = document.getElementById('main-content');
       const btnYes = document.querySelector('.btn-yes');
       const btnNo = document.querySelector('.btn-no');
       
       // 检查是否已经验证过年龄
       if (localStorage.getItem('ageVerified') === 'true') {
+        // 已经验证过，显示主内容
         ageVerification.style.display = 'none';
-        // 年龄验证通过后设置背景
+        mainContent.style.display = 'block';
         setRandomBackground();
         setBackgroundRotationTimer();
-        return;
+      } else {
+        // 未验证，显示年龄验证
+        ageVerification.style.display = 'flex';
+        mainContent.style.display = 'none';
       }
       
       // 点击"是"的处理
       btnYes.addEventListener('click', function() {
         localStorage.setItem('ageVerified', 'true');
-        ageVerification.style.opacity = '0';
-        setTimeout(function() {
-          ageVerification.style.display = 'none';
-          // 年龄验证通过后设置背景
-          setRandomBackground();
-          setBackgroundRotationTimer();
-        }, 500);
+        ageVerification.style.display = 'none';
+        mainContent.style.display = 'block';
+        setRandomBackground();
+        setBackgroundRotationTimer();
       });
       
       // 点击"否"的处理
