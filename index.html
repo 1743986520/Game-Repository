@@ -12,8 +12,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>善良的人的遊戲庫</title>
-  <meta name="description" content="免費成人遊戲資源下載，提供豐富的Android和PC遊戲。包含RPG、視覺小說、模擬經營等多種類型遊戲，持續更新分享。">
-  <meta name="keywords" content="成人遊戲下載,Android遊戲,Windows遊戲,免費遊戲,RPG遊戲,視覺小說">
   <link rel="icon" href="photo/title/favicon.ico" type="image/x-icon">
   <style>
     * {
@@ -24,7 +22,7 @@
     }
     
     body {
-      background: linear-gradient(135deg, rgba(245, 247, 250, 0.7) 0%, rgba(228, 239, 233, 0.7) 100%);
+      background: linear-gradient(135deg, rgba(245, 247, 250, 0.7) 0%, rgba(228, 239, 233, 0.7) 100%); /* 进一步降低透明度 */
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -44,13 +42,13 @@
       background-position: center;
       background-repeat: no-repeat;
       z-index: -1;
-      opacity: 0.9;
+      opacity: 0.9; /* 进一步提高背景图片的透明度 */
       transition: background-image 1s ease-in-out;
     }
     
     @media (orientation: portrait) {
       body::before {
-        opacity: 0.9;
+        opacity: 0.9; /* 竖屏模式下也提高透明度 */
       }
     }
     
@@ -68,14 +66,14 @@
     }
     
     .title-container {
-      background: linear-gradient(145deg, rgba(255, 255, 255, 0.75), rgba(230, 233, 237, 0.75));
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.75), rgba(230, 233, 237, 0.75)); /* 进一步降低透明度 */
       border-radius: 16px;
       padding: 30px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
       border: 1px solid rgba(255, 255, 255, 0.5);
       position: relative;
       overflow: hidden;
-      backdrop-filter: blur(2px);
+      backdrop-filter: blur(2px); /* 添加轻微模糊效果增强背景可见性 */
     }
     
     .title-container::before {
@@ -123,7 +121,7 @@
       justify-content: center;
       text-align: center;
       padding: 25px 20px;
-      background: rgba(255, 255, 255, 0.8);
+      background: rgba(255, 255, 255, 0.8); /* 进一步降低透明度 */
       border-radius: 12px;
       text-decoration: none;
       color: #3498db;
@@ -133,7 +131,7 @@
       transition: all 0.3s ease;
       min-height: 80px;
       line-height: 1.5;
-      backdrop-filter: blur(2px);
+      backdrop-filter: blur(2px); /* 添加轻微模糊效果 */
     }
     
     .menu li a:hover {
@@ -144,7 +142,7 @@
     }
     
     .disclaimer {
-      background: rgba(255, 248, 225, 0.8);
+      background: rgba(255, 248, 225, 0.8); /* 进一步降低透明度 */
       border-left: 4px solid #ffc107;
       padding: 15px;
       border-radius: 8px;
@@ -152,7 +150,7 @@
       text-align: center;
       font-size: 0.9rem;
       color: #5d4037;
-      backdrop-filter: blur(2px);
+      backdrop-filter: blur(2px); /* 添加轻微模糊效果 */
     }
     
     footer {
@@ -161,10 +159,10 @@
       margin-top: 30px;
       color: #7f8c8d;
       font-size: 0.9rem;
-      background: rgba(255, 255, 255, 0.6);
+      background: rgba(255, 255, 255, 0.6); /* 进一步降低透明度 */
       border-radius: 8px;
       width: 100%;
-      backdrop-filter: blur(2px);
+      backdrop-filter: blur(2px); /* 添加轻微模糊效果 */
     }
     
     /* 年龄验证弹窗样式 */
@@ -175,7 +173,7 @@
       width: 100%;
       height: 100%;
       background-color: rgba(0, 0, 0, 0.85);
-      display: none; /* 默认隐藏，通过JS控制 */
+      display: flex;
       justify-content: center;
       align-items: center;
       z-index: 9999;
@@ -183,14 +181,14 @@
     }
     
     .age-modal {
-      background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(245, 247, 250, 0.95));
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(245, 247, 250, 0.95)); /* 稍微增加透明度 */
       border-radius: 16px;
       padding: 30px;
       width: 90%;
       max-width: 500px;
       text-align: center;
       box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-      backdrop-filter: blur(5px);
+      backdrop-filter: blur(5px); /* 添加模糊效果 */
     }
     
     .age-modal h2 {
@@ -242,21 +240,6 @@
       transform: translateY(-3px);
     }
     
-    .site-description {
-      text-align: center;
-      padding: 20px;
-      color: #666;
-      font-size: 14px;
-      background: rgba(255,255,255,0.6);
-      border-radius: 8px;
-      margin: 20px 0;
-    }
-
-    /* 隐藏主内容的样式 */
-    #main-content {
-      display: block; /* 默认显示，JS会控制 */
-    }
-    
     @media (max-width: 600px) {
       h1 {
         font-size: 2.2rem;
@@ -283,47 +266,7 @@
   </style>
 </head>
 <body>
-  <!-- 搜索引擎看到的真實網站內容 -->
-  <div id="main-content">
-    <div class="container">
-      <header>
-        <div class="title-container">
-          <h1>善良的人的遊戲庫</h1>
-          <p class="subtitle">為愛發電，持續更新中<br>最近我要準備會考（國中的升學考試）所以更新比較慢<br>本網站本來是幫助沒有迅雷等中國網盤無法使用的人使用的<br>因此對於大陸並未優化，未來會持續努力<br>搜索遊戲請用繁體中文</p>
-        </div>
-      </header>
-
-      <div class="disclaimer">
-        免責聲明：本網站內容僅供成人研究使用，請遵守當地法律法規
-      </div>
-
-      <div class="site-description">
-        <p>免費成人遊戲資源分享網站 - 提供Android手機遊戲和Windows電腦遊戲下載</p>
-        <p>包含RPG、視覺小說、模擬經營、冒險解謎等多種類型遊戲資源</p>
-      </div>
-
-      <main>
-        <ul class="menu">
-          <li><a href="vice/explain.html">各種符號與狀況解釋<br>{遇到狀況請閱讀}</a></li>
-          <li><a href="vice/Special for China.html">中国网友，请看这边！</a></li>
-          <li><a href="https://www.wuacg.cn/">友站[ACG遊戲社]</a></li>
-          <li><a href="vice/VPN.html">VPN專區</a></li>
-          <li><a href="vice/search.html">找不到滿意的遊戲看這邊</a></li>
-          <!--<li><a href="vice/WEB_PC.html">免費雲電腦<br>目前處於測試階段，請謹慎使用</a></li>-->
-          <li><a href="vice/android.html">Android 遊戲</a></li>
-          <li><a href="vice/windows.html">Windows 遊戲</a></li>
-          <li><a href="https://t.me/+r7qCAeeG8ZU2Y2Rl">紙飛機群<br>歡迎大家</a></li>
-          <li><a href="https://github.com/1743986520/Game-Repository/tree/main">網站原碼<br>可以直接拿去用</a></li>
-        </ul>
-      </main>
-      
-      <footer>
-        <p>© 2025 善良的人的遊戲寶庫 - 所有權利保留</p>
-      </footer>
-    </div>
-  </div>
-
-  <!-- 年齡驗證彈窗 - 通過JS控制顯示 -->
+  <!-- 年龄验证弹窗 -->
   <div id="age-verification">
     <div class="age-modal">
       <h2>年齡驗證</h2>
@@ -336,33 +279,63 @@
     </div>
   </div>
 
+  <div class="container">
+    <header>
+      <div class="title-container">
+        <h1>善良的人的遊戲庫</h1>
+        <p class="subtitle">為愛發電，持續更新中<br>最近我要準備會考（國中的升學考試）所以更新比較慢<br>本網站本來是幫助沒有迅雷等中國網盤無法使用的人使用的<br>因此對於大陸並未優化，未來會持續努力<br>搜索遊戲請用繁體中文</p>
+      </div>
+    </header>
+
+    <div class="disclaimer">
+      免責聲明：本網站內容僅供成人研究使用，請遵守當地法律法規
+    </div>
+
+    <main>
+      <ul class="menu">
+        <li><a href="vice/explain.html">各種符號與狀況解釋<br>{遇到狀況請閱讀}</a></li>
+        <li><a href="vice/Special for China.html">中国网友，请看这边！</a></li>
+         <li><a href="https://www.wuacg.cn/">友站[ACG遊戲社]</a></li>
+         <li><a href="vice/VPN.html">VPN專區</a></li>
+        <li><a href="vice/search.html">找不到滿意的遊戲看這邊</a></li>
+        <!--<li><a href="vice/WEB_PC.html">免費雲電腦<br>目前處於測試階段，請謹慎使用</a></li>-->
+        <li><a href="vice/android.html">Android 遊戲</a></li>
+        <li><a href="vice/windows.html">Windows 遊戲</a></li>
+        <li><a href="https://t.me/+r7qCAeeG8ZU2Y2Rl">紙飛機群<br>歡迎大家</a></li>
+        <li><a href="https://github.com/1743986520/Game-Repository/tree/main">網站原碼<br>可以直接拿去用</a></li>
+      </ul>
+    </main>
+    
+    <footer>
+      <p>© 2025 善良的人的遊戲寶庫 - 所有權利保留</p>
+    </footer>
+  </div>
+
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const ageVerification = document.getElementById('age-verification');
-      const mainContent = document.getElementById('main-content');
       const btnYes = document.querySelector('.btn-yes');
       const btnNo = document.querySelector('.btn-no');
       
       // 检查是否已经验证过年龄
       if (localStorage.getItem('ageVerified') === 'true') {
-        // 已经验证过，显示主内容
         ageVerification.style.display = 'none';
-        mainContent.style.display = 'block';
+        // 年龄验证通过后设置背景
         setRandomBackground();
         setBackgroundRotationTimer();
-      } else {
-        // 未验证，显示年龄验证
-        ageVerification.style.display = 'flex';
-        mainContent.style.display = 'none';
+        return;
       }
       
       // 点击"是"的处理
       btnYes.addEventListener('click', function() {
         localStorage.setItem('ageVerified', 'true');
-        ageVerification.style.display = 'none';
-        mainContent.style.display = 'block';
-        setRandomBackground();
-        setBackgroundRotationTimer();
+        ageVerification.style.opacity = '0';
+        setTimeout(function() {
+          ageVerification.style.display = 'none';
+          // 年龄验证通过后设置背景
+          setRandomBackground();
+          setBackgroundRotationTimer();
+        }, 500);
       });
       
       // 点击"否"的处理
