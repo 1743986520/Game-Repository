@@ -11,7 +11,9 @@
 </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>善良的人的遊戲庫</title>
+  <title>遊戲下載庫 - Android和Windows免費成人遊戲資源</title>
+  <meta name="description" content="免費遊戲資源下載，提供豐富的Android和PC成人遊戲。包含RPG、冒險、模擬等多種類型遊戲，持續更新分享。">
+  <meta name="keywords" content="遊戲下載,Android遊戲,Windows遊戲,免費遊戲,遊戲資源">
   <link rel="icon" href="photo/title/favicon.ico" type="image/x-icon">
   <style>
     * {
@@ -22,7 +24,7 @@
     }
     
     body {
-      background: linear-gradient(135deg, rgba(245, 247, 250, 0.7) 0%, rgba(228, 239, 233, 0.7) 100%); /* 进一步降低透明度 */
+      background: linear-gradient(135deg, rgba(245, 247, 250, 0.7) 0%, rgba(228, 239, 233, 0.7) 100%);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -42,13 +44,13 @@
       background-position: center;
       background-repeat: no-repeat;
       z-index: -1;
-      opacity: 0.9; /* 进一步提高背景图片的透明度 */
+      opacity: 0.9;
       transition: background-image 1s ease-in-out;
     }
     
     @media (orientation: portrait) {
       body::before {
-        opacity: 0.9; /* 竖屏模式下也提高透明度 */
+        opacity: 0.9;
       }
     }
     
@@ -66,14 +68,14 @@
     }
     
     .title-container {
-      background: linear-gradient(145deg, rgba(255, 255, 255, 0.75), rgba(230, 233, 237, 0.75)); /* 进一步降低透明度 */
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.75), rgba(230, 233, 237, 0.75));
       border-radius: 16px;
       padding: 30px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
       border: 1px solid rgba(255, 255, 255, 0.5);
       position: relative;
       overflow: hidden;
-      backdrop-filter: blur(2px); /* 添加轻微模糊效果增强背景可见性 */
+      backdrop-filter: blur(2px);
     }
     
     .title-container::before {
@@ -121,7 +123,7 @@
       justify-content: center;
       text-align: center;
       padding: 25px 20px;
-      background: rgba(255, 255, 255, 0.8); /* 进一步降低透明度 */
+      background: rgba(255, 255, 255, 0.8);
       border-radius: 12px;
       text-decoration: none;
       color: #3498db;
@@ -131,7 +133,7 @@
       transition: all 0.3s ease;
       min-height: 80px;
       line-height: 1.5;
-      backdrop-filter: blur(2px); /* 添加轻微模糊效果 */
+      backdrop-filter: blur(2px);
     }
     
     .menu li a:hover {
@@ -142,7 +144,7 @@
     }
     
     .disclaimer {
-      background: rgba(255, 248, 225, 0.8); /* 进一步降低透明度 */
+      background: rgba(255, 248, 225, 0.8);
       border-left: 4px solid #ffc107;
       padding: 15px;
       border-radius: 8px;
@@ -150,7 +152,7 @@
       text-align: center;
       font-size: 0.9rem;
       color: #5d4037;
-      backdrop-filter: blur(2px); /* 添加轻微模糊效果 */
+      backdrop-filter: blur(2px);
     }
     
     footer {
@@ -159,10 +161,10 @@
       margin-top: 30px;
       color: #7f8c8d;
       font-size: 0.9rem;
-      background: rgba(255, 255, 255, 0.6); /* 进一步降低透明度 */
+      background: rgba(255, 255, 255, 0.6);
       border-radius: 8px;
       width: 100%;
-      backdrop-filter: blur(2px); /* 添加轻微模糊效果 */
+      backdrop-filter: blur(2px);
     }
     
     /* 年龄验证弹窗样式 */
@@ -181,14 +183,14 @@
     }
     
     .age-modal {
-      background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(245, 247, 250, 0.95)); /* 稍微增加透明度 */
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(245, 247, 250, 0.95));
       border-radius: 16px;
       padding: 30px;
       width: 90%;
       max-width: 500px;
       text-align: center;
       box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-      backdrop-filter: blur(5px); /* 添加模糊效果 */
+      backdrop-filter: blur(5px);
     }
     
     .age-modal h2 {
@@ -240,6 +242,16 @@
       transform: translateY(-3px);
     }
     
+    .site-description {
+      text-align: center;
+      padding: 20px;
+      color: #666;
+      font-size: 14px;
+      background: rgba(255,255,255,0.6);
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+    
     @media (max-width: 600px) {
       h1 {
         font-size: 2.2rem;
@@ -266,6 +278,13 @@
   </style>
 </head>
 <body>
+  <!-- 搜索引擎看到的說明文字 -->
+  <div style="display:none;">
+    <h1>遊戲資源下載庫</h1>
+    <p>提供免費Android和Windows 成人遊戲下載，包含各類遊戲資源，持續更新分享遊戲內容。</p>
+    <p>遊戲類型包含角色扮演、視覺小說、模擬經營、冒險解謎等。</p>
+  </div>
+
   <!-- 年龄验证弹窗 -->
   <div id="age-verification">
     <div class="age-modal">
@@ -289,6 +308,11 @@
 
     <div class="disclaimer">
       免責聲明：本網站內容僅供成人研究使用，請遵守當地法律法規
+    </div>
+
+    <div class="site-description">
+      <p>遊戲資源分享網站 - 提供Android手機遊戲和Windows電腦成人遊戲下載</p>
+      <p>包含各類型遊戲資源，不定期更新遊戲內容</p>
     </div>
 
     <main>
