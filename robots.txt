@@ -12,5 +12,5 @@ Allow: /vice/windows.html
 Disallow: /vice/VPN
 Disallow: /vice/WEB_PC.html
 
-# 修正網站地圖路徑
-Sitemap: https://www.帝.aini7.xyz/sitemap.xml
+# 統一使用 Punycode 域名
+Sitemap: https://www.xn--ztt.aini7.xyz/sitemap.xml
