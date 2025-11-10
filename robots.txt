@@ -1,0 +1,40 @@
+# robots.txt for 善良的人的遊戲庫
+User-agent: *
+Allow: /
+Allow: /index.html
+Allow: /vice/explain.html
+Allow: /vice/search.html
+Allow: /vice/android.html
+Allow: /vice/windows.html
+Allow: /photo/
+Allow: /Library/
+
+# 禁止爬取的敏感頁面
+Disallow: /vice/VPN.html
+Disallow: /vice/VPN-user.html
+Disallow: /vice/VPN-server.html
+Disallow: /vice/WEB_PC.html
+
+# 特別針對主要搜索引擎的設置
+User-agent: Googlebot
+Allow: /
+Disallow: /vice/VPN*
+Disallow: /vice/WEB_PC.html
+
+User-agent: Bingbot
+Allow: /
+Disallow: /vice/VPN*
+Disallow: /vice/WEB_PC.html
+
+User-agent: Yandex
+Allow: /
+Disallow: /vice/VPN*
+Disallow: /vice/WEB_PC.html
+
+User-agent: Baiduspider
+Allow: /
+Disallow: /vice/VPN*
+Disallow: /vice/WEB_PC.html
+
+# 網站地圖位置
+Sitemap: https://1743986520.github.io/Game-Repository/sitemap.xml
