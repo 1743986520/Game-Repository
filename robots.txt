@@ -13,4 +13,4 @@ Disallow: /vice/VPN
 Disallow: /vice/WEB_PC.html
 
 # 統一使用 Punycode 域名
-Sitemap: https://www.xn--ztt.aini7.xyz/sitemap.xml
+Sitemap: https://www.帝.aini7.xyz/sitemap.xml
