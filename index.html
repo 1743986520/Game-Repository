@@ -240,6 +240,64 @@
       transform: translateY(-3px);
     }
     
+    /* 友站链接样式 */
+    .friend-sites {
+      margin-top: 20px;
+      text-align: center;
+    }
+    
+    .friend-sites-title {
+      font-size: 1.2rem;
+      color: #7f8c8d;
+      margin-bottom: 15px;
+    }
+    
+    .friend-sites-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    
+    .friend-site {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      transition: transform 0.3s ease;
+    }
+    
+    .friend-site:hover {
+      transform: translateY(-5px);
+    }
+    
+    .friend-site-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 8px;
+      overflow: hidden;
+      backdrop-filter: blur(2px);
+    }
+    
+    .friend-site-icon img {
+      width: 70%;
+      height: 70%;
+      object-fit: contain;
+    }
+    
+    .friend-site-name {
+      font-size: 0.8rem;
+      color: #7f8c8d;
+      text-align: center;
+      max-width: 80px;
+    }
+    
     @media (max-width: 600px) {
       h1 {
         font-size: 2.2rem;
@@ -261,6 +319,16 @@
       
       .age-btn {
         width: 100%;
+      }
+      
+      .friend-site-icon {
+        width: 50px;
+        height: 50px;
+      }
+      
+      .friend-site-name {
+        font-size: 0.7rem;
+        max-width: 60px;
       }
     }
   </style>
@@ -295,8 +363,7 @@
       <ul class="menu">
         <li><a href="vice/explain.html">各種符號與狀況解釋<br>{遇到狀況請閱讀}</a></li>
         <li><a href="vice/Special for China.html">中国网友，请看这边！</a></li>
-         <li><a href="https://www.wuacg.cn/">友站[ACG遊戲社]</a></li>
-         <li><a href="vice/VPN.html">VPN專區</a></li>
+        <li><a href="vice/VPN.html">VPN專區</a></li>
         <li><a href="vice/search.html">找不到滿意的遊戲看這邊</a></li>
         <!--<li><a href="vice/WEB_PC.html">免費雲電腦<br>目前處於測試階段，請謹慎使用</a></li>-->
         <li><a href="vice/android.html">Android 遊戲</a></li>
@@ -305,6 +372,21 @@
         <li><a href="https://github.com/1743986520/Game-Repository/tree/main">網站原碼<br>可以直接拿去用</a></li>
       </ul>
     </main>
+    
+    <!-- 友站链接区域 -->
+    <div class="friend-sites">
+      <div class="friend-sites-title">友站連結</div>
+      <div class="friend-sites-container">
+        <a href="https://www.wuacg.cn/" class="friend-site" target="_blank">
+          <div class="friend-site-icon">
+            <!-- 这里可以放置网站图标，暂时使用文字作为占位 -->
+            <span style="font-size: 0.8rem; color: #3498db;">ACG</span>
+          </div>
+          <div class="friend-site-name">ACG遊戲社</div>
+        </a>
+        <!-- 后续可以在这里添加更多友站链接 -->
+      </div>
+    </div>
     
     <footer>
       <p>© 2025 善良的人的遊戲寶庫 - 所有權利保留</p>
