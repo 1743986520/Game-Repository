@@ -7,6 +7,7 @@ Allow: /vice/explain.html
 Allow: /vice/search.html
 Allow: /vice/android.html
 Allow: /vice/windows.html
+Allow: /vice/Special for China.html
 
 # 禁止敏感頁面
 Disallow: /vice/VPN
