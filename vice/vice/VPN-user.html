@@ -15,7 +15,7 @@
             align-items: center;
             min-height: 100vh;
         }
-        
+
         .maintenance-container {
             background: white;
             padding: 50px;
@@ -25,26 +25,26 @@
             max-width: 500px;
             width: 90%;
         }
-        
+
         .maintenance-icon {
             font-size: 80px;
             margin-bottom: 20px;
             color: #ff6b6b;
         }
-        
+
         h1 {
             color: #333;
             margin-bottom: 20px;
             font-size: 28px;
         }
-        
+
         p {
             color: #666;
             margin-bottom: 30px;
             font-size: 16px;
             line-height: 1.6;
         }
-        
+
         .back-button {
             background: #4CAF50;
             color: white;
@@ -57,13 +57,13 @@
             text-decoration: none;
             display: inline-block;
         }
-        
+
         .back-button:hover {
             background: #45a049;
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
-        
+
         .countdown {
             margin-top: 20px;
             padding: 15px;
@@ -71,7 +71,7 @@
             border-radius: 8px;
             border-left: 4px solid #4CAF50;
         }
-        
+
         .countdown-text {
             color: #333;
             font-weight: bold;
@@ -84,11 +84,11 @@
         <h1>系統維護中</h1>
         <p>親愛的用戶，目前系統正在進行維護與更新作業，以提供您更優質的服務品質。</p>
         <p>預計維護時間：10天</p>
-        
+
         <div class="countdown">
             <div class="countdown-text" id="countdown">系統將在 <span id="timer">14,400</span> 分鐘後恢復</div>
         </div>
-        
+
         <a href="../../index.html" class="back-button">返回首頁</a>
     </div>
 
@@ -96,11 +96,11 @@
         // 倒數計時功能
         let minutes = 14,400;
         const timerElement = document.getElementById('timer');
-        
+
         function updateCountdown() {
             minutes--;
             timerElement.textContent = minutes;
-            
+
             if (minutes <= 0) {
                 timerElement.textContent = '0';
                 clearInterval(countdownInterval);
@@ -108,10 +108,10 @@
                 // window.location.href = "../../index.html";
             }
         }
-        
+
         // 每分鐘更新一次
         const countdownInterval = setInterval(updateCountdown, 60000);
-        
+
         // 檢查返回按鈕的連結路徑
         console.log('返回按鈕將導向:', '../../index.html');
     </script>
