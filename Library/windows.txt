@@ -325,3 +325,6 @@
 ##身為神聖治癒使的女主角接受任務，淨化受詛咒的地下城，但是，地下城已經完完全全惡化！到處都是因為詛咒變異的魔物！蟲子、觸手、狂暴怪物，還有超多奇妙的陷阱！在這種嚴酷的情況下！必須盡快前進到地下城的最深處！並且開啟祭壇將這裡徹底淨化！##
 #v1.0.5下載(https://drive.google.com/file/d/1rwvk_BJjitdR0M39L3LLy7b-ZshnagW9/view?usp=sharing)#
 @
+###誰有莉拉醬與狹窄洞窟###
+##《莉拉醬與狹窄洞窟》（Kitukitu Hole）是一款在PC和Android平台上都有的冒險逃生遊戲，玩家需要扮演小女孩「莉拉醬」在黑暗的洞穴中前進。遊戲玩法是操控莉拉醬在充滿障礙和危險的隧道中爬行，躲避身後的觸手怪物，成功逃脫。遊戲的特色包括獨特的像素畫風、緊張的逃生玩法、以及融合了魔法戰鬥和策略逃亡的元素##
+#v1.0(https://drive.google.com/file/d/1yg_vb3kNwYLnORiRcUiygntxXXjo7wLk/view?usp=drivesdk)#
