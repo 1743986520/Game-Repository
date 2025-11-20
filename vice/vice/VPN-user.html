@@ -3,117 +3,180 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>系統維護中</title>
+    <title>善良的人的遊戲庫VPN服务选择</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Microsoft JhengHei', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
+            padding: 20px;
         }
-
-        .maintenance-container {
-            background: white;
-            padding: 50px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            text-align: center;
+        
+        .container {
+            width: 100%;
             max-width: 500px;
-            width: 90%;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
         }
-
-        .maintenance-icon {
-            font-size: 80px;
-            margin-bottom: 20px;
-            color: #ff6b6b;
+        
+        .header {
+            background: linear-gradient(to right, #2c3e50, #4a6491);
+            color: white;
+            padding: 20px;
+            text-align: center;
         }
-
-        h1 {
-            color: #333;
-            margin-bottom: 20px;
-            font-size: 28px;
+        
+        .header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
         }
-
-        p {
-            color: #666;
-            margin-bottom: 30px;
-            font-size: 16px;
-            line-height: 1.6;
-        }
-
-        .back-button {
-            background: #4CAF50;
+        
+        .back-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: rgba(255, 255, 255, 0.2);
             color: white;
             border: none;
-            padding: 12px 30px;
-            border-radius: 25px;
-            font-size: 16px;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+        
+        .content {
+            padding: 25px;
+        }
+        
+        .warning {
+            background-color: #fff8e1;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin-bottom: 25px;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #5d4037;
+        }
+        
+        .warning strong {
+            color: #d84315;
+        }
+        
+        .vpn-options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .vpn-btn {
+            display: flex;
+            align-items: center;
+            padding: 18px 20px;
+            background: linear-gradient(to right, #2196f3, #21cbf3);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
+            box-shadow: 0 4px 10px rgba(33, 150, 243, 0.3);
         }
-
-        .back-button:hover {
-            background: #45a049;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        
+        .vpn-btn:nth-child(2) {
+            background: linear-gradient(to right, #9c27b0, #e040fb);
+            box-shadow: 0 4px 10px rgba(156, 39, 176, 0.3);
         }
-
-        .countdown {
-            margin-top: 20px;
+        
+        .vpn-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .vpn-btn:active {
+            transform: translateY(1px);
+        }
+        
+        .vpn-icon {
+            margin-right: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .footer {
+            text-align: center;
             padding: 15px;
-            background: #f8f9fa;
-            border-radius: 8px;
-            border-left: 4px solid #4CAF50;
+            color: #757575;
+            font-size: 0.8rem;
+            border-top: 1px solid #e0e0e0;
         }
-
-        .countdown-text {
-            color: #333;
-            font-weight: bold;
+        
+        @media (max-width: 480px) {
+            .container {
+                border-radius: 10px;
+            }
+            
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .vpn-btn {
+                padding: 15px;
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="maintenance-container">
-        <div class="maintenance-icon">🔧</div>
-        <h1>系統維護中</h1>
-        <p>親愛的用戶，目前系統正在進行維護與更新作業，以提供您更優質的服務品質。</p>
-        <p>預計維護時間：10天</p>
-
-        <div class="countdown">
-            <div class="countdown-text" id="countdown">系統將在 <span id="timer">14,400</span> 分鐘後恢復</div>
+    <div class="container">
+        <div class="header">
+            <button class="back-btn" onclick="window.location.href='../../index.html'">←</button>
+            <h1>VPN服务选择</h1>
+            <p>请选择适合您的VPN连接方式</p>
         </div>
-
-        <a href="../../index.html" class="back-button">返回首頁</a>
+        
+        <div class="content">
+            <div class="warning">
+                <strong>重要声明：</strong> 本站提供的VPN严禁任何违法或刷流量等行为，若后续受到攻击将暂停服务。方法一適用於完全不懂的小白，且為本站自己的伺服器，運行穩定但慢，發法二為正規方式，需要一點技術，且伺服器是別人的免費伺服器，隨時會中斷。
+            </div>
+            
+            <div class="vpn-options">
+                <button class="vpn-btn" onclick="window.location.href='/VPN_user_choose/VPN_method_1.html'">
+                    <span class="vpn-icon">🔒</span>
+                    VPN方法一
+                </button>
+                
+                <button class="vpn-btn" onclick="window.location.href='/VPN_user_choose/VPN_method_2.html'">
+                    <span class="vpn-icon">🛡️</span>
+                    VPN方法二
+                </button>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>请遵守当地法律法规，合理使用VPN服务，本服務由善良的人的遊戲庫提供</p>
+        </div>
     </div>
-
-    <script>
-        // 倒數計時功能
-        let minutes = 14,400;
-        const timerElement = document.getElementById('timer');
-
-        function updateCountdown() {
-            minutes--;
-            timerElement.textContent = minutes;
-
-            if (minutes <= 0) {
-                timerElement.textContent = '0';
-                clearInterval(countdownInterval);
-                // 可以加入自動重新導向的程式碼
-                // window.location.href = "../../index.html";
-            }
-        }
-
-        // 每分鐘更新一次
-        const countdownInterval = setInterval(updateCountdown, 60000);
-
-        // 檢查返回按鈕的連結路徑
-        console.log('返回按鈕將導向:', '../../index.html');
-    </script>
 </body>
 </html>
