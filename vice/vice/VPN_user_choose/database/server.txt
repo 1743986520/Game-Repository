@@ -1,4 +1,4 @@
 ##vpv-server-1-ipv6##
-#該伺服器僅有ipv6注意訪問的網站是否支援純ipv6訪問#
+#該伺服器僅有ipv6注意訪問的網站是否支援純ipv6訪問，這台禁止做磁力分享，出問題的話會關停#
 #https://login.tailscale.com/admin/invite/oJqvVKK5Ve1soQaezEEY11#！
 @
