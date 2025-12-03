@@ -1,0 +1,4 @@
+##vpv-server-1-ipv6##
+#該伺服器僅有ipv6注意訪問的網站是否支援純ipv6訪問#
+#https://login.tailscale.com/admin/invite/oJqvVKK5Ve1soQaezEEY11#！
+@
