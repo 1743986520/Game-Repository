@@ -257,6 +257,12 @@
             gap: 10px;
         }
         
+        .server-link {
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
+        
         footer {
             text-align: center;
             margin-top: 40px;
@@ -394,8 +400,8 @@
             
             <div class="note">
                 <h4><i class="fas fa-exclamation-circle"></i> 重要提示</h4>
-                <p>1. 点击"前往此服务器"按钮将直接访问该服务器网址。</p>
-                <p>2. 部分服务器可能需要额外配置，请参考服务器提供者的说明。</p>
+                <p>1. 点击"前往此服务器"按钮將直接跳轉到該網址。</p>
+                <p>2. 數據從 <code>/database/server.txt</code> 讀取，請確保文件格式正確。</p>
             </div>
         </div>
         
@@ -455,20 +461,13 @@
             }, 10000);
         }
         
-        // 前往服务器网址
-        function goToServer(name, url) {
-            // 记录用户选择
-            localStorage.setItem('selectedServer', JSON.stringify({ 
-                name, 
-                url, 
-                timestamp: new Date().toISOString() 
-            }));
+        // 直接跳转到服务器网址
+        function goToServer(url) {
+            // 记录用户选择（如果需要）
+            localStorage.setItem('lastVisitedServer', url);
             
-            // 在新标签页中打开网址
-            window.open(url, '_blank');
-            
-            // 显示提示信息
-            alert(`正在前往服务器: ${name}\n\n如果页面没有自动打开，请点击浏览器地址栏上方的弹出窗口允许提示。\n\n网址: ${url}`);
+            // 直接跳转到网址（在当前页面）
+            window.location.href = url;
         }
         
         // 加载并显示服务器列表
@@ -501,14 +500,20 @@
                 
                 let html = '';
                 servers.forEach(server => {
+                    // 验证URL格式
+                    let validUrl = server.url;
+                    if (!validUrl.startsWith('http://') && !validUrl.startsWith('https://')) {
+                        validUrl = 'http://' + validUrl;
+                    }
+                    
                     html += `
                     <div class="server-card">
                         <h3 class="server-name"><i class="fas fa-server"></i> ${server.name}</h3>
                         <p class="server-desc">${server.description}</p>
                         <div class="server-url">${server.url}</div>
-                        <button class="btn btn-success" onclick="goToServer('${server.name}', '${server.url}')">
+                        <a href="${validUrl}" class="btn btn-success server-link" onclick="return confirm('確定要前往此伺服器嗎？')">
                             <i class="fas fa-external-link-alt"></i> 前往此服务器
-                        </button>
+                        </a>
                     </div>
                     `;
                 });
