@@ -127,6 +127,14 @@
             background: #565e64;
         }
         
+        .btn-success {
+            background: #28a745;
+        }
+        
+        .btn-success:hover {
+            background: #218838;
+        }
+        
         .download-links {
             display: flex;
             flex-wrap: wrap;
@@ -386,7 +394,8 @@
             
             <div class="note">
                 <h4><i class="fas fa-exclamation-circle"></i> 重要提示</h4>
-                <p>1. 选择服务器后，请在 Tailscale 应用程序中将其设置为出口节点。</p>
+                <p>1. 点击"前往此服务器"按钮将直接访问该服务器网址。</p>
+                <p>2. 部分服务器可能需要额外配置，请参考服务器提供者的说明。</p>
             </div>
         </div>
         
@@ -446,6 +455,22 @@
             }, 10000);
         }
         
+        // 前往服务器网址
+        function goToServer(name, url) {
+            // 记录用户选择
+            localStorage.setItem('selectedServer', JSON.stringify({ 
+                name, 
+                url, 
+                timestamp: new Date().toISOString() 
+            }));
+            
+            // 在新标签页中打开网址
+            window.open(url, '_blank');
+            
+            // 显示提示信息
+            alert(`正在前往服务器: ${name}\n\n如果页面没有自动打开，请点击浏览器地址栏上方的弹出窗口允许提示。\n\n网址: ${url}`);
+        }
+        
         // 加载并显示服务器列表
         async function loadServers() {
             const serverListEl = document.getElementById('server-list');
@@ -481,8 +506,8 @@
                         <h3 class="server-name"><i class="fas fa-server"></i> ${server.name}</h3>
                         <p class="server-desc">${server.description}</p>
                         <div class="server-url">${server.url}</div>
-                        <button class="btn" onclick="selectServer('${server.name}', '${server.url}')">
-                            <i class="fas fa-check-circle"></i> 选择此服务器
+                        <button class="btn btn-success" onclick="goToServer('${server.name}', '${server.url}')">
+                            <i class="fas fa-external-link-alt"></i> 前往此服务器
                         </button>
                     </div>
                     `;
@@ -495,14 +520,6 @@
                 serverListEl.innerHTML = '<div class="loading"><i class="fas fa-exclamation-triangle"></i><p>加载服务器数据失败</p><p>请检查 /database/server.txt 文件是否存在</p></div>';
                 showError(`无法加载服务器数据: ${error.message}`);
             }
-        }
-        
-        // 选择服务器函数
-        function selectServer(name, url) {
-            alert(`已选择服务器: ${name}\n\n请在Tailscale应用程序中将以下地址设置为出口节点:\n${url}\n\n然后按照应用程序指引完成配置。`);
-            
-            // 在实际使用中，这里可能会将选择记录到本地存储或进行其他操作
-            localStorage.setItem('selectedServer', JSON.stringify({ name, url, timestamp: new Date().toISOString() }));
         }
         
         // 页面加载时自动加载服务器列表
