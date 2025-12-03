@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>善良的人的遊戲庫-VPN-1</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            padding-bottom: 40px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #3a7bd5 0%, #00d2ff 100%);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            border-radius: 0 0 15px 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+        
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+        
+        .step-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .step-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+        }
+        
+        .step-number {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: #3a7bd5;
+            color: white;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            font-weight: bold;
+            border-radius: 0 0 12px 0;
+        }
+        
+        .step-card h3 {
+            color: #3a7bd5;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            padding-left: 10px;
+            border-left: 4px solid #3a7bd5;
+        }
+        
+        .step-card p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #3a7bd5;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            margin-top: 10px;
+        }
+        
+        .btn:hover {
+            background: #2a5bb5;
+            transform: scale(1.05);
+        }
+        
+        .btn-secondary {
+            background: #6c757d;
+        }
+        
+        .btn-secondary:hover {
+            background: #565e64;
+        }
+        
+        .download-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .download-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #f8f9fa;
+            padding: 12px 18px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #333;
+            border: 1px solid #dee2e6;
+            transition: all 0.3s ease;
+            flex: 1;
+            min-width: 150px;
+        }
+        
+        .download-link:hover {
+            background: #e9ecef;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .download-link i {
+            color: #3a7bd5;
+            font-size: 1.2rem;
+        }
+        
+        .servers-container {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+            margin-top: 30px;
+        }
+        
+        .servers-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .servers-header h2 {
+            color: #3a7bd5;
+            font-size: 1.8rem;
+        }
+        
+        .server-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .server-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 25px;
+            border-left: 5px solid #3a7bd5;
+            transition: all 0.3s ease;
+        }
+        
+        .server-card:hover {
+            background: #edf2ff;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .server-name {
+            font-size: 1.4rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .server-name i {
+            color: #3a7bd5;
+        }
+        
+        .server-desc {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        
+        .server-url {
+            background: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            word-break: break-all;
+            margin-bottom: 15px;
+            border: 1px solid #dee2e6;
+        }
+        
+        .note {
+            background: #fff8e1;
+            border-left: 5px solid #ffc107;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+            font-size: 0.95rem;
+        }
+        
+        .note h4 {
+            color: #e65100;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #666;
+            font-size: 0.9rem;
+            padding-top: 20px;
+            border-top: 1px solid #dee2e6;
+        }
+        
+        @media (max-width: 768px) {
+            .steps-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .server-list {
+                grid-template-columns: 1fr;
+            }
+            
+            header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .servers-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 30px;
+            color: #666;
+        }
+        
+        .loading i {
+            font-size: 2rem;
+            color: #3a7bd5;
+            margin-bottom: 15px;
+        }
+        
+        .error {
+            background: #ffebee;
+            border-left: 5px solid #f44336;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .error h4 {
+            color: #d32f2f;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Tailscale 安装与服务器选择指南</h1>
+            <p>按照以下步骤安装Tailscale并选择适合的服务器作为出口节点</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="steps-container">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <h3>登录 Tailscale</h3>
+                <p>访问 Tailscale 官方网站并登录您的账户。如果您还没有账户，请先注册。</p>
+                <a href="https://tailscale.com/login" target="_blank" class="btn">
+                    <i class="fas fa-sign-in-alt"></i> 前往 Tailscale 登录页面
+                </a>
+            </div>
+            
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <h3>安装应用程序</h3>
+                <p>根据您的设备下载并安装 Tailscale 客户端应用程序。</p>
+                
+                <div class="download-links">
+                    <a href="https://pan.baidu.com/s/1example-pc" target="_blank" class="download-link">
+                        <i class="fas fa-desktop"></i> PC版 (Windows/Mac)
+                    </a>
+                    <a href="https://pan.baidu.com/share/init?surl=A4Tig_OQboAyG2PatOXqiA&pwd=qh1q" target="_blank" class="download-link">
+                        <i class="fas fa-mobile-alt"></i> 安卓版
+                    </a>
+                </div>
+                
+                <p style="margin-top: 15px; font-size: 0.9rem; color: #777;">
+                    <i class="fas fa-info-circle"></i> iOS 和 Mac 用户请通过官方应用商店下载
+                </p>
+            </div>
+            
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <h3>登录应用程序</h3>
+                <p>在安装好的应用程序中，使用与第一步注册时相同的账号登录。</p>
+                <p>确保使用相同的账户，以便同步您的设备和设置。</p>
+                <button class="btn btn-secondary" onclick="alert('请打开已安装的Tailscale应用，使用您在第一步中注册的账户登录')">
+                    <i class="fas fa-user-check"></i> 确认账户一致性
+                </button>
+            </div>
+            
+            <div class="step-card">
+                <div class="step-number">4</div>
+                <h3>选择出口服务器</h3>
+                <p>从下方列表中选择一台服务器作为您的网络出口节点。</p>
+                <p>服务器信息从 <code>/database/server.txt</code> 文件中读取。</p>
+                <button class="btn" onclick="loadServers()">
+                    <i class="fas fa-sync-alt"></i> 刷新服务器列表
+                </button>
+            </div>
+        </div>
+        
+        <div class="servers-container">
+            <div class="servers-header">
+                <h2><i class="fas fa-server"></i> 可用服务器列表</h2>
+                <div>数据来源: <code>/database/server.txt</code></div>
+            </div>
+            
+            <div id="server-list" class="server-list">
+                <!-- 服务器列表将通过JavaScript动态加载 -->
+                <div class="loading">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>正在加载服务器列表...</p>
+                </div>
+            </div>
+            
+            <div id="error-message" class="error" style="display: none;">
+                <h4><i class="fas fa-exclamation-triangle"></i> 加载服务器数据时出错</h4>
+                <p id="error-text"></p>
+            </div>
+            
+            <div class="note">
+                <h4><i class="fas fa-exclamation-circle"></i> 重要提示</h4>
+                <p>1. 选择服务器后，请在 Tailscale 应用程序中将其设置为出口节点。</p>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2025善良的人的遊戲庫提供</p>
+            <p>請遵守法規</p>
+        </footer>
+    </div>
+
+    <script>
+        // 解析服务器数据
+        function parseServerData(data) {
+            const servers = [];
+            
+            // 检查数据是否为空
+            if (!data || data.trim().length === 0) {
+                return servers;
+            }
+            
+            // 按@分割每个服务器
+            const serverBlocks = data.split('@').filter(block => block.trim());
+            
+            serverBlocks.forEach(block => {
+                const lines = block.trim().split('\n').filter(line => line.trim());
+                
+                if (lines.length >= 3) {
+                    const nameMatch = lines[0].match(/##(.+?)##/);
+                    const descMatch = lines[1].match(/#(.+?)#/);
+                    const urlMatch = lines[2].match(/#(.+?)#/);
+                    
+                    if (nameMatch && descMatch && urlMatch) {
+                        servers.push({
+                            name: nameMatch[1].trim(),
+                            description: descMatch[1].trim(),
+                            url: urlMatch[1].trim()
+                        });
+                    } else {
+                        console.warn('服务器数据格式错误:', block);
+                    }
+                }
+            });
+            
+            return servers;
+        }
+        
+        // 显示错误信息
+        function showError(message) {
+            const errorEl = document.getElementById('error-message');
+            const errorTextEl = document.getElementById('error-text');
+            
+            errorTextEl.textContent = message;
+            errorEl.style.display = 'block';
+            
+            // 10秒后自动隐藏错误信息
+            setTimeout(() => {
+                errorEl.style.display = 'none';
+            }, 10000);
+        }
+        
+        // 加载并显示服务器列表
+        async function loadServers() {
+            const serverListEl = document.getElementById('server-list');
+            const errorEl = document.getElementById('error-message');
+            
+            // 隐藏之前的错误信息
+            errorEl.style.display = 'none';
+            
+            // 显示加载状态
+            serverListEl.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-spin"></i><p>正在从 /database/server.txt 加载服务器列表...</p></div>';
+            
+            try {
+                // 从 /database/server.txt 获取数据
+                const response = await fetch('/database/server.txt');
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                
+                const data = await response.text();
+                const servers = parseServerData(data);
+                
+                if (servers.length === 0) {
+                    serverListEl.innerHTML = '<div class="loading"><i class="fas fa-exclamation-triangle"></i><p>未找到服务器数据或文件格式错误</p><p>请检查 /database/server.txt 文件格式</p></div>';
+                    showError('服务器列表为空或文件格式不正确。请确保文件格式为: ##服务器名称## #服务器介绍# #网址# ! @');
+                    return;
+                }
+                
+                let html = '';
+                servers.forEach(server => {
+                    html += `
+                    <div class="server-card">
+                        <h3 class="server-name"><i class="fas fa-server"></i> ${server.name}</h3>
+                        <p class="server-desc">${server.description}</p>
+                        <div class="server-url">${server.url}</div>
+                        <button class="btn" onclick="selectServer('${server.name}', '${server.url}')">
+                            <i class="fas fa-check-circle"></i> 选择此服务器
+                        </button>
+                    </div>
+                    `;
+                });
+                
+                serverListEl.innerHTML = html;
+                
+            } catch (error) {
+                console.error('加载服务器数据失败:', error);
+                serverListEl.innerHTML = '<div class="loading"><i class="fas fa-exclamation-triangle"></i><p>加载服务器数据失败</p><p>请检查 /database/server.txt 文件是否存在</p></div>';
+                showError(`无法加载服务器数据: ${error.message}`);
+            }
+        }
+        
+        // 选择服务器函数
+        function selectServer(name, url) {
+            alert(`已选择服务器: ${name}\n\n请在Tailscale应用程序中将以下地址设置为出口节点:\n${url}\n\n然后按照应用程序指引完成配置。`);
+            
+            // 在实际使用中，这里可能会将选择记录到本地存储或进行其他操作
+            localStorage.setItem('selectedServer', JSON.stringify({ name, url, timestamp: new Date().toISOString() }));
+        }
+        
+        // 页面加载时自动加载服务器列表
+        document.addEventListener('DOMContentLoaded', function() {
+            loadServers();
+        });
+    </script>
+</body>
+</html>
