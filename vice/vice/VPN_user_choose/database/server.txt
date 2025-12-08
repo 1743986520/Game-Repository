@@ -2,3 +2,7 @@
 #該伺服器僅有ipv6，注意訪問的網站是否支援純ipv6訪問，而且這台伺服器網速偏慢，頂多看看訊息之類的，還有這台禁止做磁力分享，出問題的話會關停#
 #https://login.tailscale.com/admin/invite/oJqvVKK5Ve1soQaezEEY11#！
 @
+##vpnserver-2-restricted##
+#他只有25GB的流量，看訊息可以，圖片和影片不用想了，沒這麼快，上下行偏低。他是在荷蘭#
+#https://login.tailscale.com/admin/invite/19LhXVoA6PWsoQaezEEY11#！
+@
