@@ -3,6 +3,6 @@
 #https://login.tailscale.com/admin/invite/oJqvVKK5Ve1soQaezEEY11#！
 @
 ##vpnserver-2-restricted##
-#他只有25GB的流量，看訊息可以，圖片和影片不用想了，沒這麼快，上下行偏低。他是在荷蘭#
+#他只有25GB的流量，看訊息可以，圖片和影片不用想了，沒這麼快，上下行偏低。他是在新加坡#
 #https://login.tailscale.com/admin/invite/19LhXVoA6PWsoQaezEEY11#！
 @
