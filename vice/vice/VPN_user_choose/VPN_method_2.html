@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>VPN节点选择</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            margin-bottom: 10px;
+        }
+        
+        .back-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: #666;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .nodes-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .node-item {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+        
+        .node-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .node-desc {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        
+        .node-link {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 12px;
+            word-break: break-all;
+            margin-bottom: 10px;
+        }
+        
+        .copy-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .note {
+            margin-top: 30px;
+            padding: 15px;
+            background: #e8f4fc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <button class="back-btn" onclick="goBack()">返回</button>
+    
+    <div class="container">
+        <div class="header">
+            <h1>VPN节点订阅链接</h1>
+            <p>复制订阅链接到您的VPN客户端使用</p>
+        </div>
+        
+        <div class="nodes-list">
+            <!-- 节点1 -->
+            <div class="node-item">
+                <div class="node-title">机场节点 - 无限流量</div>
+                <div class="node-desc">profiles_US-Infinite.txt</div>
+                <div class="node-link">
+                    https://ipv4-openlist.xn--acg-4i2f.xyz/d/机场节点/无限流量/profiles_US-Infinite.txt?sign=UM9yc-sKBdUG6TGEd4VJRVWh1PSGL8SZglao6XOqVCc=:0
+                </div>
+                <button class="copy-btn" onclick="copyLink('link1')">复制链接</button>
+            </div>
+            
+            <!-- 节点2 -->
+            <div class="node-item">
+                <div class="node-title">机场节点 - 有限流量</div>
+                <div class="node-desc">profiles_US-Limited.txt</div>
+                <div class="node-link">
+                    https://ipv4-openlist.xn--acg-4i2f.xyz/d/机场节点/有限流量/profiles_US-Limited.txt?sign=g52nafw6TUS_Zkhr0eTdq706Ih0GtL8NL4ge7uKuMcE=:0
+                </div>
+                <button class="copy-btn" onclick="copyLink('link2')">复制链接</button>
+            </div>
+            
+            <!-- 节点3 -->
+            <div class="node-item">
+                <div class="node-title">他人赠送的节点 - SU大佬提供</div>
+                <div class="node-desc">su大佬提供的节点.txt</div>
+                <div class="node-link">
+                    https://ipv4-openlist.xn--acg-4i2f.xyz/d/机场节点/他人赠送的节点/su大佬/su大佬提供的节点.txt?sign=1fW1pxsekaTE2Dpq1fK4ziTKJFnJZ85pq-MUTEVvdUY=:0
+                </div>
+                <button class="copy-btn" onclick="copyLink('link3')">复制链接</button>
+            </div>
+        </div>
+        
+        <div class="note">
+            <p><strong>使用方法：</strong></p>
+            <p>1. 复制上方任一订阅链接</p>
+            <p>2. 在您的VPN客户端中添加订阅</p>
+            <p>3. 更新节点列表并连接</p>
+        </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.location.href = "https://帝acg.xyz";
+        }
+        
+        function copyLink(linkId) {
+            let linkText = "";
+            
+            if (linkId === 'link1') {
+                linkText = "https://ipv4-openlist.xn--acg-4i2f.xyz/d/机场节点/无限流量/profiles_US-Infinite.txt?sign=UM9yc-sKBdUG6TGEd4VJRVWh1PSGL8SZglao6XOqVCc=:0";
+            } else if (linkId === 'link2') {
+                linkText = "https://ipv4-openlist.xn--acg-4i2f.xyz/d/机场节点/有限流量/profiles_US-Limited.txt?sign=g52nafw6TUS_Zkhr0eTdq706Ih0GtL8NL4ge7uKuMcE=:0";
+            } else if (linkId === 'link3') {
+                linkText = "https://ipv4-openlist.xn--acg-4i2f.xyz/d/机场节点/他人赠送的节点/su大佬/su大佬提供的节点.txt?sign=1fW1pxsekaTE2Dpq1fK4ziTKJFnJZ85pq-MUTEVvdUY=:0";
+            }
+            
+            navigator.clipboard.writeText(linkText).then(() => {
+                alert("订阅链接已复制到剪贴板");
+            }).catch(err => {
+                console.error("复制失败:", err);
+                // 备用复制方法
+                const textArea = document.createElement("textarea");
+                textArea.value = linkText;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand("copy");
+                document.body.removeChild(textArea);
+                alert("订阅链接已复制到剪贴板");
+            });
+        }
+    </script>
+</body>
+</html>
