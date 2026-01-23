@@ -5,6 +5,7 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2614268755538946"
      crossorigin="anonymous"></script>
 <!-- uptime_kuma_cachebuster -->
+
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-S2RP40BPKD"></script>
 <script>
@@ -13,103 +14,265 @@
   gtag('js', new Date());
   gtag('config', 'G-S2RP40BPKD');
 </script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>善良的人的遊戲庫</title>
-  <link rel="icon" href="photo/title/favicon.ico" type="image/x-icon">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Microsoft JhengHei', '微軟正黑體', Arial, sans-serif;
-    }
-    
-    body {
-      background: linear-gradient(135deg, rgba(245, 247, 250, 0.7) 0%, rgba(228, 239, 233, 0.7) 100%);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 20px;
-      position: relative;
-    }
-    
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      z-index: -1;
-      opacity: 0.9;
-      transition: background-image 1s ease-in-out;
-    }
-    
-    @media (orientation: portrait) {
-      body::before {
-        opacity: 0.9;
-      }
-    }
-    
-    .container {
-      width: 100%;
-      max-width: 800px;
-      display: flex;
-      flex-direction: column;
-      gap: 30px;
-    }
-    
-    header {
-      text-align: center;
-      padding: 20px;
-    }
-    
-    .title-container {
-      background: linear-gradient(145deg, rgba(255, 255, 255, 0.75), rgba(230, 233, 237, 0.75));
-      border-radius: 16px;
-      padding: 30px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.5);
-      position: relative;
-      overflow: hidden;
-      backdrop-filter: blur(2px);
-    }
-    
-    .title-container::before {
-      content: "";
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 60%);
-      transform: rotate(25deg);
-      z-index: 0;
-    }
-    
-    h1 {
-      font-size: 2.8rem;
-      color: #2c3e50;
-      margin-bottom: 10px;
-      position: relative;
-      z-index: 1;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-      letter-spacing: 1px;
-    }
-    
-    .subtitle {
-      font-size: 1.2rem;
-      color: #7f8c8d;
-      font-weight: normal;
-      margin-top: 10px;
-      position: relative;
-      z-index: 1;
-    }
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>善良的人的遊戲庫</title>
+<link rel="icon" href="photo/title/favicon.ico" type="image/x-icon">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Microsoft JhengHei','微軟正黑體',Arial,sans-serif
+}
+
+body{
+  background:linear-gradient(135deg,rgba(245,247,250,.7),rgba(228,239,233,.7));
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:20px;
+  position:relative;
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  opacity:.9;
+  transition:background-image 1s ease-in-out;
+}
+
+.container{
+  width:100%;
+  max-width:800px;
+  display:flex;
+  flex-direction:column;
+  gap:30px;
+}
+
+header{text-align:center}
+
+.title-container{
+  background:linear-gradient(145deg,rgba(255,255,255,.75),rgba(230,233,237,.75));
+  border-radius:16px;
+  padding:30px;
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+h1{font-size:2.8rem;color:#2c3e50}
+.subtitle{margin-top:10px;color:#7f8c8d;line-height:1.6}
+
+/* ===== 廣告 ===== */
+.ad-box{
+  margin:0 20px;
+  display:flex;
+  justify-content:center;
+}
+
+.ad-box video{
+  max-width:100%;
+  height:auto;
+  border-radius:6px;
+  box-shadow:0 4px 12px rgba(0,0,0,.15);
+}
+
+/* ===== 主選單 ===== */
+.menu{
+  list-style:none;
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+  padding:20px;
+}
+
+.menu li a{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:25px;
+  background:rgba(255,255,255,.8);
+  border-radius:12px;
+  text-decoration:none;
+  color:#3498db;
+  font-weight:bold;
+  font-size:1.2rem;
+  transition:.3s;
+}
+
+.menu li a:hover{
+  background:#3498db;
+  color:#fff;
+  transform:translateY(-5px);
+}
+
+/* ===== 免責聲明（底部） ===== */
+.disclaimer-bottom{
+  background:rgba(255,248,225,.8);
+  border-left:4px solid #ffc107;
+  padding:15px;
+  border-radius:8px;
+  margin:0 20px;
+  font-size:.9rem;
+  color:#5d4037;
+  text-align:center;
+}
+
+/* ===== Footer ===== */
+footer{
+  text-align:center;
+  padding:20px;
+  color:#7f8c8d;
+  font-size:.9rem;
+  background:rgba(255,255,255,.6);
+  border-radius:8px;
+}
+
+/* ===== 年齡驗證 ===== */
+#age-verification{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.85);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+}
+
+.age-modal{
+  background:#fff;
+  padding:30px;
+  border-radius:16px;
+  max-width:500px;
+  text-align:center;
+}
+
+.age-buttons{
+  display:flex;
+  gap:20px;
+  justify-content:center;
+  margin-top:25px;
+}
+
+.age-btn{
+  padding:12px 30px;
+  border:none;
+  border-radius:8px;
+  font-size:1.1rem;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.btn-yes{background:#3498db;color:#fff}
+.btn-no{background:#e74c3c;color:#fff}
+</style>
+</head>
+
+<body>
+
+<!-- 年齡驗證 -->
+<div id="age-verification">
+  <div class="age-modal">
+    <h2>年齡驗證</h2>
+    <p>本網站包含成人內容，請確認您是否已滿18歲？</p>
+    <div class="age-buttons">
+      <button class="age-btn btn-yes">是的，我已滿18歲</button>
+      <button class="age-btn btn-no">未滿18歲</button>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+<header>
+  <div class="title-container">
+    <h1>善良的人的遊戲庫</h1>
+    <p class="subtitle">
+      為愛發電，持續更新中<br>
+      最近我要準備會考所以更新較慢<br>
+      搜索遊戲請使用繁體中文
+    </p>
+  </div>
+</header>
+
+<!-- ✅ 廣告（位置不動） -->
+<div class="ad-box">
+  <a href="https://distantalizing.xyz?ref_id=f5cfab23-7e79-49b1-8013-446d4736aa5c"
+     target="_blank" rel="noopener sponsored">
+    <video
+      src="https://github.com/1743986520/Game-Repository/raw/refs/heads/main/photo/ads/728%C3%9790.gif.mp4"
+      autoplay loop muted playsinline>
+    </video>
+  </a>
+</div>
+
+<main>
+<ul class="menu">
+  <li><a href="vice/explain.html">各種符號與狀況解釋<br>{遇到狀況請閱讀}</a></li>
+  <li><a href="vice/Special for China.html">中国网友，请看这边！</a></li>
+  <li><a href="vice/VPN.html">VPN專區</a></li>
+  <li><a href="vice/search.html">找不到滿意的遊戲看這邊</a></li>
+  <li><a href="vice/android.html">Android 遊戲</a></li>
+  <li><a href="vice/windows.html">Windows 遊戲</a></li>
+  <li><a href="https://t.me/+r7qCAeeG8ZU2Y2Rl">紙飛機群<br>歡迎大家</a></li>
+  <li><a href="https://blog.帝acg.xyz">一個討論區<br>近來聊聊</a></li>
+  <li><a href="https://11255048.github.io/ipv6-test/">網站文件儲存<br>包括但不限於遊戲還有機場節點</a></li>
+</ul>
+</main>
+
+<!-- ⚠️ 免責聲明移到最底 -->
+<div class="disclaimer-bottom">
+  免責聲明：本網站內容僅供成人研究使用，請遵守當地法律法規
+</div>
+
+<footer>
+  © 2025 善良的人的遊戲寶庫 - 所有權利保留
+</footer>
+
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+  const modal=document.getElementById('age-verification');
+
+  if(localStorage.getItem('ageVerified')==='true'){
+    modal.style.display='none';
+    setRandomBackground();
+    setInterval(setRandomBackground,5*60*1000);
+  }
+
+  document.querySelector('.btn-yes').onclick=function(){
+    localStorage.setItem('ageVerified','true');
+    modal.style.display='none';
+    setRandomBackground();
+    setInterval(setRandomBackground,5*60*1000);
+  };
+
+  document.querySelector('.btn-no').onclick=function(){
+    alert('這才是你該玩的！即將為您跳轉...');
+    location.href='https://1743986520.github.io/ooxx';
+  };
+
+  function setRandomBackground(){
+    const isPortrait=window.innerHeight>window.innerWidth;
+    const max=isPortrait?10:30;
+    const folder=isPortrait?'photo/upright/':'photo/level/';
+    const num=String(Math.floor(Math.random()*max)+1).padStart(3,'0');
+    document.body.style.backgroundImage=`url('${folder}${num}.jpg')`;
+  }
+});
+</script>
+
+</body>
+</html>    }
     
     .menu {
       list-style: none;
