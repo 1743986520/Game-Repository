@@ -4,7 +4,6 @@
 <!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2614268755538946"
      crossorigin="anonymous"></script>
-<!-- uptime_kuma_cachebuster -->
 
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-S2RP40BPKD"></script>
@@ -18,16 +17,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>善良的人的遊戲庫</title>
-<link rel="icon" href="photo/title/favicon.ico" type="image/x-icon">
+<link rel="icon" href="photo/title/favicon.ico">
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Microsoft JhengHei','微軟正黑體',Arial,sans-serif
-}
-
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Microsoft JhengHei','微軟正黑體',Arial}
 body{
   background:linear-gradient(135deg,rgba(245,247,250,.7),rgba(228,239,233,.7));
   min-height:100vh;
@@ -37,7 +30,6 @@ body{
   padding:20px;
   position:relative;
 }
-
 body::before{
   content:"";
   position:fixed;
@@ -49,51 +41,19 @@ body::before{
   opacity:.9;
   transition:background-image 1s ease-in-out;
 }
-
-.container{
-  width:100%;
-  max-width:800px;
-  display:flex;
-  flex-direction:column;
-  gap:30px;
-}
-
+.container{width:100%;max-width:800px;display:flex;flex-direction:column;gap:30px}
 header{text-align:center}
-
 .title-container{
-  background:linear-gradient(145deg,rgba(255,255,255,.75),rgba(230,233,237,.75));
-  border-radius:16px;
+  background:rgba(255,255,255,.75);
   padding:30px;
+  border-radius:16px;
   box-shadow:0 10px 30px rgba(0,0,0,.08);
 }
-
 h1{font-size:2.8rem;color:#2c3e50}
 .subtitle{margin-top:10px;color:#7f8c8d;line-height:1.6}
 
-/* ===== 廣告 ===== */
-.ad-box{
-  margin:0 20px;
-  display:flex;
-  justify-content:center;
-}
-
-.ad-box video{
-  max-width:100%;
-  height:auto;
-  border-radius:6px;
-  box-shadow:0 4px 12px rgba(0,0,0,.15);
-}
-
-/* ===== 主選單 ===== */
-.menu{
-  list-style:none;
-  display:flex;
-  flex-direction:column;
-  gap:20px;
-  padding:20px;
-}
-
-.menu li a{
+.menu{list-style:none;display:flex;flex-direction:column;gap:20px;padding:20px}
+.menu a{
   display:flex;
   justify-content:center;
   align-items:center;
@@ -107,9 +67,153 @@ h1{font-size:2.8rem;color:#2c3e50}
   font-size:1.2rem;
   transition:.3s;
 }
+.menu a:hover{background:#3498db;color:#fff;transform:translateY(-5px)}
 
-.menu li a:hover{
-  background:#3498db;
+.ad-box{display:flex;justify-content:center;margin:0 20px}
+.ad-box video{
+  max-width:100%;
+  height:auto;
+  border-radius:6px;
+  box-shadow:0 4px 12px rgba(0,0,0,.15);
+}
+
+.friend-sites{text-align:center}
+.friend-sites-title{color:#7f8c8d;margin-bottom:15px}
+.friend-sites-container{display:flex;justify-content:center;gap:15px;flex-wrap:wrap}
+.friend-site{text-decoration:none;transition:.3s}
+.friend-site:hover{transform:translateY(-5px)}
+.friend-site-icon{
+  width:60px;height:60px;border-radius:50%;
+  overflow:hidden;background:#fff;
+  box-shadow:0 4px 10px rgba(0,0,0,.1);
+}
+.friend-site-icon img{width:100%;height:100%;object-fit:cover}
+.friend-site-name{font-size:.8rem;color:#7f8c8d;margin-top:6px}
+
+.disclaimer-bottom{
+  background:rgba(255,248,225,.8);
+  border-left:4px solid #ffc107;
+  padding:15px;
+  border-radius:8px;
+  margin:0 20px;
+  font-size:.9rem;
+  color:#5d4037;
+  text-align:center;
+}
+
+footer{text-align:center;color:#7f8c8d;font-size:.9rem}
+
+#age-verification{
+  position:fixed;inset:0;
+  background:rgba(0,0,0,.85);
+  display:flex;justify-content:center;align-items:center;
+  z-index:9999;
+}
+.age-modal{background:#fff;padding:30px;border-radius:16px;text-align:center;max-width:500px}
+.age-buttons{margin-top:20px;display:flex;gap:20px;justify-content:center}
+.age-btn{padding:12px 30px;border:none;border-radius:8px;font-weight:bold;cursor:pointer}
+.btn-yes{background:#3498db;color:#fff}
+.btn-no{background:#e74c3c;color:#fff}
+</style>
+</head>
+
+<body>
+
+<div id="age-verification">
+  <div class="age-modal">
+    <h2>年齡驗證</h2>
+    <p>本網站包含成人內容，請確認您是否已滿18歲？</p>
+    <div class="age-buttons">
+      <button class="age-btn btn-yes">是的，我已滿18歲</button>
+      <button class="age-btn btn-no">未滿18歲</button>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+<header>
+  <div class="title-container">
+    <h1>善良的人的遊戲庫</h1>
+    <p class="subtitle">
+      為愛發電，持續更新中<br>
+      最近準備會考，更新較慢<br>
+      搜索請使用繁體中文
+    </p>
+  </div>
+</header>
+
+<!-- 廣告（固定位置） -->
+<div class="ad-box">
+  <a href="https://distantalizing.xyz?ref_id=f5cfab23-7e79-49b1-8013-446d4736aa5c"
+     target="_blank" rel="noopener sponsored">
+    <video src="https://github.com/1743986520/Game-Repository/raw/refs/heads/main/photo/ads/728%C3%9790.gif.mp4"
+           autoplay loop muted playsinline></video>
+  </a>
+</div>
+
+<ul class="menu">
+  <li><a href="vice/explain.html">各種符號與狀況解釋<br>{遇到狀況請閱讀}</a></li>
+  <li><a href="vice/Special for China.html">中国网友，请看这边！</a></li>
+  <li><a href="vice/VPN.html">VPN專區</a></li>
+  <li><a href="vice/search.html">找不到滿意的遊戲看這邊</a></li>
+  <li><a href="vice/android.html">Android 遊戲</a></li>
+  <li><a href="vice/windows.html">Windows 遊戲</a></li>
+  <li><a href="https://t.me/+r7qCAeeG8ZU2Y2Rl">紙飛機群<br>歡迎大家</a></li>
+  <li><a href="https://blog.帝acg.xyz">一個討論區<br>近來聊聊</a></li>
+  <li><a href="https://11255048.github.io/ipv6-test/">網站文件儲存</a></li>
+</ul>
+
+<div class="friend-sites">
+  <div class="friend-sites-title">友站連結</div>
+  <div class="friend-sites-container">
+    <a href="https://www.acgyxs.org" class="friend-site" target="_blank">
+      <div class="friend-site-icon">
+        <img src="https://raw.githubusercontent.com/1743986520/Game-Repository/refs/heads/main/photo/title/acgyxs.cc.ico">
+      </div>
+      <div class="friend-site-name">ACG遊戲社</div>
+    </a>
+  </div>
+</div>
+
+<div class="disclaimer-bottom">
+  免責聲明：本網站內容僅供成人研究使用，請遵守當地法律法規
+</div>
+
+<footer>
+  © 2025 善良的人的遊戲寶庫
+</footer>
+
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+  const modal=document.getElementById('age-verification');
+  if(localStorage.getItem('ageVerified')==='true'){
+    modal.style.display='none';
+    setBG(); setInterval(setBG,300000);
+  }
+  document.querySelector('.btn-yes').onclick=()=>{
+    localStorage.setItem('ageVerified','true');
+    modal.style.display='none';
+    setBG(); setInterval(setBG,300000);
+  };
+  document.querySelector('.btn-no').onclick=()=>{
+    alert('這才是你該玩的！即將為您跳轉...');
+    location.href='https://1743986520.github.io/ooxx';
+  };
+  function setBG(){
+    const portrait=innerHeight>innerWidth;
+    const max=portrait?10:30;
+    const folder=portrait?'photo/upright/':'photo/level/';
+    const num=String(Math.floor(Math.random()*max)+1).padStart(3,'0');
+    document.body.style.backgroundImage=`url('${folder}${num}.jpg')`;
+  }
+});
+</script>
+
+</body>
+</html>  background:#3498db;
   color:#fff;
   transform:translateY(-5px);
 }
