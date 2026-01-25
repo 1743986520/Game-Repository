@@ -29,6 +29,7 @@ body{
   align-items:center;
   padding:20px;
   position:relative;
+  overflow-x:hidden; /* 防止背景超出視窗 */
 }
 body::before{
   content:"";
@@ -36,8 +37,9 @@ body::before{
   inset:0;
   z-index:-1;
   background-size:cover;
-  background-position:center;
+  background-position:50% 50%; /* 使用具體的百分比確保置中 */
   background-repeat:no-repeat;
+  background-attachment:fixed; /* 固定背景位置 */
   opacity:.9;
   transition:background-image 1s ease-in-out;
 }
@@ -52,7 +54,7 @@ header{text-align:center}
 h1{font-size:2.8rem;color:#2c3e50}
 .subtitle{margin-top:10px;color:#7f8c8d;line-height:1.6}
 
-.menu{list-style:none;display:flex;flex-direction:column;gap:20px;padding:20px}
+.menu{list-style:none;display:flex;flex-direction:column;gap:20px;padding:0 20px}
 .menu a{
   display:flex;
   justify-content:center;
@@ -69,12 +71,88 @@ h1{font-size:2.8rem;color:#2c3e50}
 }
 .menu a:hover{background:#3498db;color:#fff;transform:translateY(-5px)}
 
-.ad-box{display:flex;justify-content:center;margin:0 20px}
-.ad-box video{
+/* 自適應廣告區塊 - 修正手機版對齊 */
+.ad-box{
+  display:flex;
+  justify-content:center;
+  width:100%;
+  padding:0 20px; /* 改用 padding 確保與 menu 對齊 */
+}
+.ad-box a{
+  display:block;
+  width:100%;
   max-width:100%;
-  height:auto;
   border-radius:6px;
+  overflow:hidden;
   box-shadow:0 4px 12px rgba(0,0,0,.15);
+}
+.ad-box video{
+  width:100%;
+  height:auto;
+  aspect-ratio:728/90; /* 保持原始比例 */
+  object-fit:cover;
+  display:block;
+}
+
+/* 手機版調整 */
+@media (max-width: 768px) {
+  body {
+    padding:15px;
+  }
+  .container {
+    gap:20px;
+  }
+  .title-container {
+    padding:20px;
+  }
+  h1 {
+    font-size:2.2rem;
+  }
+  .menu {
+    padding:0 15px;
+    gap:15px;
+  }
+  .menu a {
+    padding:20px;
+    font-size:1.1rem;
+  }
+  .ad-box {
+    padding:0 15px; /* 手機版與 menu 保持相同 padding */
+  }
+  
+  /* 修正手機版背景位置 */
+  body::before {
+    background-position:center center;
+    background-attachment:scroll; /* 手機上使用滾動背景 */
+    background-size:cover;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size:1.8rem;
+  }
+  .subtitle {
+    font-size:0.9rem;
+  }
+  .menu a {
+    padding:18px;
+    font-size:1rem;
+  }
+  
+  /* 更小的裝置背景調整 */
+  body::before {
+    background-position:50% 50%;
+    background-size:cover;
+  }
+}
+
+/* 平板裝置調整 */
+@media (min-width: 769px) and (max-width: 1024px) {
+  body::before {
+    background-position:50% 50%;
+    background-size:cover;
+  }
 }
 
 .friend-sites{text-align:center}
@@ -143,7 +221,7 @@ footer{text-align:center;color:#7f8c8d;font-size:.9rem}
   </div>
 </header>
 
-<!-- 廣告（固定位置） -->
+<!-- 自適應廣告 -->
 <div class="ad-box">
   <a href="https://distantalizing.xyz?ref_id=f5cfab23-7e79-49b1-8013-446d4736aa5c"
      target="_blank" rel="noopener sponsored">
@@ -208,7 +286,13 @@ document.addEventListener('DOMContentLoaded',()=>{
     const max=portrait?10:30;
     const folder=portrait?'photo/upright/':'photo/level/';
     const num=String(Math.floor(Math.random()*max)+1).padStart(3,'0');
-    document.body.style.backgroundImage=`url('${folder}${num}.jpg')`;
+    
+    // 預加載圖片以確保平滑過渡
+    const img = new Image();
+    img.src = `${folder}${num}.jpg`;
+    img.onload = function() {
+      document.body.style.backgroundImage = `url('${folder}${num}.jpg')`;
+    };
   }
 });
 </script>
