@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全新平台即將登場 | 敬請期待</title>
+    <style>
+        :root {
+            --bg: #0a0a0f;
+            --card-bg: #111119;
+            --text: #e0e0e0;
+            --accent: #00e5ff;
+            --accent2: #7c4dff;
+            --accent3: #ff4081;
+            --glow-cyan: rgba(0, 229, 255, 0.5);
+            --glow-purple: rgba(124, 77, 255, 0.4);
+            --glow-pink: rgba(255, 64, 129, 0.3);
+            --border: rgba(255, 255, 255, 0.08);
+            --tag-bg: rgba(255, 255, 255, 0.04);
+            --tag-active-bg: rgba(0, 229, 255, 0.12);
+            --tag-active-border: rgba(0, 229, 255, 0.5);
+            --divider: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'PingFang TC', 'Microsoft JhengHei', 'Noto Sans TC', 'Helvetica Neue', Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+            position: relative;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ============ 動態背景粒子 ============ */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            animation: floatUp linear infinite;
+            opacity: 0;
+        }
+        @keyframes floatUp {
+            0% {
+                transform: translateY(105vh) scale(0);
+                opacity: 0;
+            }
+            8% {
+                opacity: 1;
+            }
+            70% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-10vh) scale(1.6);
+                opacity: 0;
+            }
+        }
+
+        /* ============ 光暈裝飾 ============ */
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(120px);
+            pointer-events: none;
+            z-index: 0;
+            animation: orbPulse 8s ease-in-out infinite;
+        }
+        .orb-1 {
+            width: 380px;
+            height: 380px;
+            background: var(--accent);
+            opacity: 0.08;
+            top: -10%;
+            left: -8%;
+            animation-delay: 0s;
+        }
+        .orb-2 {
+            width: 300px;
+            height: 300px;
+            background: var(--accent2);
+            opacity: 0.07;
+            bottom: -12%;
+            right: -6%;
+            animation-delay: -4s;
+        }
+        .orb-3 {
+            width: 220px;
+            height: 220px;
+            background: var(--accent3);
+            opacity: 0.05;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-delay: -2s;
+        }
+        @keyframes orbPulse {
+            0%,
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+            30% {
+                transform: translate(-50%, -50%) scale(1.3);
+            }
+            60% {
+                transform: translate(-50%, -50%) scale(0.85);
+            }
+        }
+
+        /* ============ 主容器 ============ */
+        .container {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 680px;
+            margin: 20px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 48px 36px 40px;
+            box-shadow:
+                0 24px 80px rgba(0, 0, 0, 0.6),
+                0 0 0 1px rgba(255, 255, 255, 0.03) inset,
+                0 1px 0 rgba(255, 255, 255, 0.04) inset;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.4s ease;
+            animation: cardEntry 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+        }
+        @keyframes cardEntry {
+            from {
+                opacity: 0;
+                transform: translateY(40px) scale(0.94);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* ============ 頂部圖標 ============ */
+        .icon-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 28px;
+        }
+        .icon-circle {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 40px var(--glow-cyan), 0 0 80px var(--glow-purple);
+            animation: iconGlow 3s ease-in-out infinite;
+            position: relative;
+        }
+        .icon-circle::after {
+            content: '';
+            position: absolute;
+            inset: -8px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            animation: iconRing 3s ease-in-out infinite;
+        }
+        @keyframes iconGlow {
+            0%,
+            100% {
+                box-shadow: 0 0 40px var(--glow-cyan), 0 0 80px var(--glow-purple);
+            }
+            50% {
+                box-shadow: 0 0 60px var(--glow-cyan), 0 0 110px var(--glow-purple), 0 0 150px var(--glow-pink);
+            }
+        }
+        @keyframes iconRing {
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+            50% {
+                transform: scale(1.25);
+                opacity: 0.15;
+            }
+        }
+        .icon-circle svg {
+            width: 30px;
+            height: 30px;
+            fill: none;
+            stroke: #fff;
+            stroke-width: 2.2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ============ 語言切換標籤 ============ */
+        .lang-tabs {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 32px;
+        }
+        .lang-tab {
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            border: 2px solid transparent;
+            background: var(--tag-bg);
+            color: #aaa;
+            transition: all 0.3s ease;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+            white-space: nowrap;
+        }
+        .lang-tab:hover {
+            color: #ddd;
+            background: rgba(255, 255, 255, 0.07);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        .lang-tab.active {
+            color: #fff;
+            background: var(--tag-active-bg);
+            border-color: var(--tag-active-border);
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.25), 0 4px 16px rgba(0, 0, 0, 0.3);
+            letter-spacing: 0.05em;
+        }
+
+        /* ============ 內容區域 ============ */
+        .content-panel {
+            display: none;
+            text-align: center;
+            animation: fadeSlideIn 0.45s ease forwards;
+        }
+        .content-panel.active {
+            display: block;
+        }
+        @keyframes fadeSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(16px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .headline {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #ffffff 0%, #c0e8ff 40%, #b9a9ff 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.4;
+        }
+        .sub-headline {
+            font-size: 1.05rem;
+            color: #b0b0c0;
+            margin-bottom: 20px;
+            letter-spacing: 0.03em;
+            line-height: 1.7;
+        }
+        .highlight-tag {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            margin-bottom: 22px;
+            background: rgba(255, 64, 129, 0.12);
+            color: #ff6b9d;
+            border: 1px solid rgba(255, 64, 129, 0.3);
+        }
+        .message-body {
+            font-size: 1rem;
+            color: #c8c8d8;
+            line-height: 1.9;
+            letter-spacing: 0.03em;
+            margin-bottom: 8px;
+        }
+        .message-body strong {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        /* ============ 分隔線 ============ */
+        .divider-line {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--accent2));
+            border-radius: 4px;
+            margin: 24px auto;
+            opacity: 0.7;
+        }
+
+        /* ============ 底部關站提示 ============ */
+        .closure-notice {
+            margin-top: 20px;
+            padding: 14px 18px;
+            border-radius: 14px;
+            background: rgba(255, 193, 7, 0.06);
+            border: 1px solid rgba(255, 193, 7, 0.2);
+            font-size: 0.9rem;
+            color: #e0c060;
+            letter-spacing: 0.04em;
+            line-height: 1.7;
+            text-align: center;
+        }
+        .closure-notice .icon-warn {
+            display: inline-block;
+            margin-right: 4px;
+            font-size: 1rem;
+        }
+
+        /* ============ RWD ============ */
+        @media (max-width: 520px) {
+            .container {
+                padding: 32px 20px 28px;
+                border-radius: 18px;
+                margin: 12px;
+            }
+            .headline {
+                font-size: 1.4rem;
+            }
+            .sub-headline {
+                font-size: 0.9rem;
+            }
+            .message-body {
+                font-size: 0.9rem;
+            }
+            .lang-tab {
+                padding: 8px 15px;
+                font-size: 0.8rem;
+            }
+            .icon-circle {
+                width: 50px;
+                height: 50px;
+            }
+            .icon-circle svg {
+                width: 24px;
+                height: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 動態粒子背景 -->
+    <div class="particles" id="particlesContainer"></div>
+
+    <!-- 光暈裝飾 -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <!-- 主容器 -->
+    <div class="container">
+        <!-- 圖標 -->
+        <div class="icon-wrapper">
+            <div class="icon-circle">
+                <!-- 閃電/能量圖標 -->
+                <svg viewBox="0 0 24 24">
+                    <polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" stroke="#fff" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+        </div>
+
+        <!-- 語言切換標籤 -->
+        <div class="lang-tabs">
+            <button class="lang-tab active" data-lang="zh-Hant" aria-label="繁體中文">🇹🇼 繁體中文</button>
+            <button class="lang-tab" data-lang="zh-Hans" aria-label="简体中文">🇨🇳 简体中文</button>
+            <button class="lang-tab" data-lang="en" aria-label="English">🇺🇸 English</button>
+        </div>
+
+        <!-- ========== 繁體中文內容 ========== -->
+        <div class="content-panel active" id="panel-zh-Hant">
+            <p class="headline">全新震撼體驗即將降臨</p>
+            <p class="sub-headline">我們即將迎來重大升級</p>
+            <span class="highlight-tag">✦ 资源共享新時代</span>
+            <p class="message-body">
+                我們將創造一個<strong>全新的平台</strong>，讓資源共享更無縫、更高效。<br>
+                這不僅是一次改版，而是一場徹底的進化。
+            </p>
+            <div class="divider-line"></div>
+            <p class="message-body">
+                敬請期待，一切即將揭曉。
+            </p>
+            <div class="closure-notice">
+                <span class="icon-warn">⚠️</span> 為此，我們將<strong>提前關站進行調整</strong>，感謝您的耐心與支持。
+            </div>
+        </div>
+
+        <!-- ========== 简体中文内容 ========== -->
+        <div class="content-panel" id="panel-zh-Hans">
+            <p class="headline">全新震撼体验即将降临</p>
+            <p class="sub-headline">我们即将迎来重大升级</p>
+            <span class="highlight-tag">✦ 资源共享新时代</span>
+            <p class="message-body">
+                我们将创造一个<strong>全新的平台</strong>，让资源共享更无缝、更高效。<br>
+                这不仅是一次改版，而是一场彻底的进化。
+            </p>
+            <div class="divider-line"></div>
+            <p class="message-body">
+                敬请期待，一切即将揭晓。
+            </p>
+            <div class="closure-notice">
+                <span class="icon-warn">⚠️</span> 为此，我们将<strong>提前关站进行调整</strong>，感谢您的耐心与支持。
+            </div>
+        </div>
+
+        <!-- ========== English Content ========== -->
+        <div class="content-panel" id="panel-en">
+            <p class="headline">A Brand New Stunning Experience Is Coming</p>
+            <p class="sub-headline">A major upgrade is on the horizon</p>
+            <span class="highlight-tag">✦ A New Era of Resource Sharing</span>
+            <p class="message-body">
+                We are creating a <strong>brand new platform</strong> for seamless and efficient resource sharing.<br>
+                This is not just a redesign — it's a complete evolution.
+            </p>
+            <div class="divider-line"></div>
+            <p class="message-body">
+                Please stay tuned. Everything will be revealed soon.
+            </p>
+            <div class="closure-notice">
+                <span class="icon-warn">⚠️</span> For this reason, the site will be <strong>temporarily closed for adjustments</strong>. Thank you for your patience and support.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            // ============ 語言切換邏輯 ============
+            const tabs = document.querySelectorAll('.lang-tab');
+            const panels = document.querySelectorAll('.content-panel');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const lang = tab.getAttribute('data-lang');
+                    // 移除所有 active
+                    tabs.forEach(t => t.classList.remove('active'));
+                    panels.forEach(p => p.classList.remove('active'));
+                    // 設置當前 active
+                    tab.classList.add('active');
+                    const targetPanel = document.getElementById('panel-' + lang);
+                    if (targetPanel) {
+                        targetPanel.classList.add('active');
+                        // 重新觸發進場動畫
+                        targetPanel.style.animation = 'none';
+                        targetPanel.offsetHeight; // reflow
+                        targetPanel.style.animation = 'fadeSlideIn 0.45s ease forwards';
+                    }
+                });
+            });
+
+            // ============ 生成背景粒子 ============
+            const particlesContainer = document.getElementById('particlesContainer');
+            const particleCount = 45;
+            const colors = [
+                'rgba(0, 229, 255, 0.7)',
+                'rgba(124, 77, 255, 0.6)',
+                'rgba(255, 64, 129, 0.5)',
+                'rgba(255, 255, 255, 0.5)',
+                'rgba(180, 200, 255, 0.55)',
+            ];
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                const size = Math.random() * 4 + 2; // 2px ~ 6px
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                particle.style.animationDuration = Math.random() * 14 + 8 + 's'; // 8s ~ 22s
+                particle.style.animationDelay = Math.random() * 16 + 's';
+                particle.style.boxShadow = `0 0 ${size * 3}px ${particle.style.backgroundColor}`;
+                particlesContainer.appendChild(particle);
+            }
+
+            // ============ 預設繁體中文 active（已於 HTML 設定） ============
+            console.log('✅ 頁面已就緒 — 預設顯示繁體中文');
+        })();
+    </script>
+</body>
+</html>
